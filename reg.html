@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>輔仁大學資訊管理學系 - 專題評分系統</title>
+    <title>輔仁大學資訊管理學系 - 專題評分系統 - 註冊</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,6 +21,12 @@
     <!-- Custom styles for this template -->
     <link href="css/landing-page.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+      header.masthead{
+        background: url("img/banners_0002.jpg") no-repeat center center;
+      }
+    </style>
   </head>
 
   <body>
@@ -29,33 +35,7 @@
     <nav class="navbar navbar-light bg-light fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">專題評分系統</a>
-        <!--<a class="btn btn-primary" href="login.html">登入~~</a>-->
-        <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown link
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-          </ul>
-        </div>-->
+        <!--<a class="btn btn-primary" href="#">登入~~</a>-->
         <ul class="nav nav-custom">
           <li class="nav-item">
             <a class="nav-link active" href="index.html">首頁</a>
@@ -191,28 +171,40 @@
     </section>-->
 
     <!-- Call to Action -->
-    <!--<section class="call-to-action text-white text-center">
+    <section class="call-to-action text-white text-center">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-xl-9 mx-auto">
-            <h2 class="mb-4">Ready to get started? Sign up now!</h2>
+            <h2 class="mb-4 display-4">註冊帳號</h2>
           </div>
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form>
-              <div class="form-row">
-                <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
+            <form action="" method="post">
+                <div class="row justify-content-md-center">
+                  <div class="col-12 col-md-9 mb-3">
+                    <input type="text" class="form-control form-control-lg" placeholder="Enter your ldap username..." name="username">
+                  </div>
                 </div>
-                <div class="col-12 col-md-3">
-                  <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
+                <div class="row justify-content-md-center">
+                  <div class="col-12 col-md-9 mb-3">
+                    <input type="password" class="form-control form-control-lg" placeholder="Enter your ldap password..." name="password">
+                  </div>
                 </div>
-              </div>
+                <div class="row">
+                  <div class="col-12 col-md-3 offset-md-7">
+                    <button type="submit" class="btn btn-block btn-lg btn-primary word-1">註冊</button>
+                  </div>
+                </div>
+                <div class="row justify-content-md-center">
+                  <div class="col-12 col-md-9 mb-3">
+                    <p class="form-text text-white word-1">按下註冊即視同您同意本系統的使用條款。</p>
+                  </div>
+                </div>
             </form>
           </div>
         </div>
       </div>
-    </section>-->
+    </section>
 
     <!-- Footer -->
     <footer class="footer bg-light">

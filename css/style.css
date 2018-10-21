@@ -1,0 +1,17 @@
+/*override*/
+header.masthead{
+    opacity: 0.8;
+}
+
+.call-to-action{
+    background: url("../img/focus1152.jpg") no-repeat center center;
+    opacity: 0.8;
+}
+
+/*custom*/
+.word-1{
+    font-size: 24px;
+}
+.nav-custom{
+    font-size: 20px;
+}
