@@ -15,3 +15,35 @@ header.masthead{
 .nav-custom{
     font-size: 20px;
 }
+/*table*/
+table.table-custom{
+    width: 100%;
+}
+table.table-custom thead tr th {
+    background-color: #004085;
+    color: white;
+    padding: 40px 10px;
+    font-size: 30px;
+    border-radius: 20px;
+    border: none;
+}
+table.table-custom tbody tr td{
+    padding: 30px 0;
+    font-size: 24px;
+    border-bottom: 4px solid white;
+}
+/*input field*/
+input.cus-input{
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 7px;
+    background-color: #b8daff;
+}
+input.cus-input:hover{
+    border: 5px solid #10707f;
+}
+select.cus-select{
+    padding: 12px;
+    font-size: 22px;
+    border-radius: 5px;
+}

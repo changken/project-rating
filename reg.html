@@ -26,30 +26,46 @@
       header.masthead{
         background: url("img/banners_0002.jpg") no-repeat center center;
       }
+      .call-to-action{
+        /*#20c997*/
+        background: #9fcdff no-repeat center center;
+      }
     </style>
   </head>
 
   <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">專題評分系統</a>
-        <!--<a class="btn btn-primary" href="#">登入~~</a>-->
-        <ul class="nav nav-custom">
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html">首頁</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.html">登入</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="reg.html">註冊</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" onmousedown="alert('未完成')">後台</a>
-          </li>
-        </ul>
+        <!--<a class="btn btn-primary" href="login.html">登入~~</a>-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav nav-custom">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">首頁</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">登入</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="reg.html">註冊</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="backpanel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                後台功能
+              </a>
+              <div class="dropdown-menu" aria-labelledby="backpanel">
+                <a class="dropdown-item" href="manage-account.html">帳號權限管理</a>
+                <a class="dropdown-item disabled" href="#">專題評分管理</a>
+                <a class="dropdown-item disabled" href="#">專題分組管理</a>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
 
@@ -175,10 +191,34 @@
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <div class="col-xl-9 mx-auto">
+          <!--<div class="col-xl-9 mx-auto">
             <h2 class="mb-4 display-4">註冊帳號</h2>
-          </div>
+          </div>-->
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+            <form action="" method="post">
+              <table class="table table-custom">
+                <thead>
+                  <tr>
+                    <th>註冊帳號</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ldap帳號:<input type="text" name="ldap_user" class="cus-input"></td>
+                  </tr>
+                  <tr>
+                    <td>ldap密碼:<input type="password" name="ldap_pw" class="cus-input"></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="form-text text-white word-1">按下註冊即視同您同意本系統的使用條款。</p>
+                      <button type="submit" class="btn btn-primary btn-lg">註冊</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </form>
+            <!--
             <form action="" method="post">
                 <div class="row justify-content-md-center">
                   <div class="col-12 col-md-9 mb-3">
@@ -201,6 +241,7 @@
                   </div>
                 </div>
             </form>
+            -->
           </div>
         </div>
       </div>

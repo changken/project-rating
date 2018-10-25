@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>輔仁大學資訊管理學系 - 專題評分系統</title>
+    <title>輔仁大學資訊管理學系 - 專題評分系統 - 新增帳號(後台)</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,6 +21,44 @@
     <!-- Custom styles for this template -->
     <link href="css/landing-page.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+      header.masthead{
+        background: url("img/banners_0002.jpg") no-repeat center center;
+      }
+      .call-to-action{
+        /*#20c997*/
+        background: #9fcdff no-repeat center center;
+      }
+      #stu_area, #teacher_area{
+        display: none;
+      }
+    </style>
+    <!--include js-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script>
+      $(function(){
+          $("#level").change(function(){
+              switch ($("#level option:selected").val()) {
+                  case 'admin':
+                      $("#adm_area").show();
+                      $("#stu_area").hide();
+                      $("#teacher_area").hide();
+                      break;
+                  case 'teacher':
+                      $("#adm_area").hide();
+                      $("#stu_area").hide();
+                      $("#teacher_area").show();
+                      break;
+                  case 'student':
+                      $("#adm_area").hide();
+                      $("#stu_area").show();
+                      $("#teacher_area").hide();
+                      break;
+              }
+          });
+      });
+    </script>
   </head>
 
   <body>
@@ -36,7 +74,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav nav-custom">
             <li class="nav-item">
-              <a class="nav-link active" href="index.html">首頁</a>
+              <a class="nav-link" href="index.html">首頁</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="login.html">登入</a>
@@ -49,7 +87,7 @@
                 後台功能
               </a>
               <div class="dropdown-menu" aria-labelledby="backpanel">
-                <a class="dropdown-item" href="manage-account.html">帳號權限管理</a>
+                <a class="dropdown-item active" href="manage-account.html">帳號權限管理</a>
                 <a class="dropdown-item disabled" href="#">專題評分管理</a>
                 <a class="dropdown-item disabled" href="#">專題分組管理</a>
               </div>
@@ -177,28 +215,91 @@
     </section>-->
 
     <!-- Call to Action -->
-    <!--<section class="call-to-action text-white text-center">
+    <section class="call-to-action text-white text-center">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <div class="col-xl-9 mx-auto">
-            <h2 class="mb-4">Ready to get started? Sign up now!</h2>
-          </div>
+          <!--<div class="col-xl-9 mx-auto">
+            <h2 class="mb-4 display-4">註冊帳號</h2>
+          </div>-->
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form>
-              <div class="form-row">
-                <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
-                </div>
-                <div class="col-12 col-md-3">
-                  <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
-                </div>
-              </div>
+            <form action="" method="post">
+              <table class="table table-custom">
+                <thead>
+                  <tr>
+                    <th>新增帳號(後台)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ldap帳號:<input type="text" name="ldap_user" class="cus-input"></td>
+                  </tr>
+                  <tr>
+                    <td>姓名:<input type="text" name="name" class="cus-input"></td>
+                  </tr>
+                  <tr>
+                    <td>電子郵件:<input type="text" name="email" class="cus-input"></td>
+                  </tr>
+                  <tr>
+                    <td>權限:
+                      <select class="cus-select" name="level" id="level">
+                        <option value="admin" selected>管理員</option>
+                        <option value="teacher">教師</option>
+                        <option value="student">學生</option>
+                      </select>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="table table-custom" id="adm_area">
+                <thead>
+                  <tr>
+                    <th>管理者</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>職位:<input type="text" name="adm_work" class="cus-input"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="table table-custom" id="stu_area">
+                <thead>
+                  <tr>
+                    <th>學生</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>系級:<input type="text" name="stu_department_grade" class="cus-input"></td>
+                  </tr>
+                  <tr>
+                    <td>組別:<input type="text" name="stu_group" class="cus-input"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="table table-custom" id="teacher_area">
+                <thead>
+                  <tr>
+                    <th>教師</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>等級:<input type="text" name="teacher_level" class="cus-input"></td>
+                  </tr>
+                  <tr>
+                    <td>職位:<input type="text" name="teacher_work" class="cus-input"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <button type="submit" class="btn btn-primary btn-lg">新增</button>
             </form>
+            <a href="manage-account.html" class="btn btn-dark btn-lg my-3">回帳號權限管理頁面</a>
           </div>
         </div>
       </div>
-    </section>-->
+    </section>
 
     <!-- Footer -->
     <footer class="footer bg-light">
@@ -243,7 +344,6 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
