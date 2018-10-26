@@ -31,6 +31,11 @@
         background: #9fcdff no-repeat center center;
       }
     </style>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
   </head>
 
   <body>
@@ -61,7 +66,8 @@
               <div class="dropdown-menu" aria-labelledby="backpanel">
                 <a class="dropdown-item active" href="manage-account.html">帳號權限管理</a>
                 <a class="dropdown-item disabled" href="#">專題評分管理</a>
-                <a class="dropdown-item disabled" href="#">專題分組管理</a>
+                <a class="dropdown-item" href="manage-group.html">專題分組管理</a>
+                <a class="dropdown-item disabled" href="#">專題文件管理</a>
               </div>
             </li>
           </ul>
@@ -93,108 +99,93 @@
       </div>
     </header>
 
-    <!-- Icons Grid -->
-    <section class="features-icons bg-light text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="icon-people m-auto text-primary"></i>
-              </div>
-              <h3>分組</h3>
-              <p class="lead mb-0">透過本系統，可以輕鬆地得知每個組別的分組情形。</p>
+    <div class="modal fade" id="delete_account_0" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="delete_account_0_title">刪除張凱凱</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-danger" role="alert">
+              <p>刪除帳號是個不可回覆的動作！</p>
             </div>
           </div>
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="icon-list m-auto text-primary"></i>
-              </div>
-              <h3>評分</h3>
-              <p class="lead mb-0">免去了大量的紙本評分表，可以讓老師直接於線上評分，並且可以立即得知成績和排名。</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="icon-check m-auto text-primary"></i>
-              </div>
-              <h3>就是有效率</h3>
-              <p class="lead mb-0">時間就是金錢，電子化夭壽讚！XD</p>
-            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- Image Showcases -->
-    <!--<section class="showcase">
-      <div class="container-fluid p-0">
-        <div class="row no-gutters">
-
-          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/bg-showcase-1.jpg');"></div>
-          <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-            <h2>Fully Responsive Design</h2>
-            <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+    </div>
+    <div class="modal fade" id="delete_account_1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="delete_account_1_title">刪除廖阿翔</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-        </div>
-        <div class="row no-gutters">
-          <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/bg-showcase-2.jpg');"></div>
-          <div class="col-lg-6 my-auto showcase-text">
-            <h2>Updated For Bootstrap 4</h2>
-            <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 4 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 4!</p>
+          <div class="modal-body">
+            <div class="alert alert-danger" role="alert">
+              <p>刪除帳號是個不可回覆的動作！</p>
+            </div>
           </div>
-        </div>
-        <div class="row no-gutters">
-          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/bg-showcase-3.jpg');"></div>
-          <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-            <h2>Easy to Use &amp; Customize</h2>
-            <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
           </div>
         </div>
       </div>
-    </section>-->
-
-    <!-- Testimonials -->
-    <!--<section class="testimonials text-center bg-light">
-      <div class="container">
-        <h2 class="mb-5">What people are saying...</h2>
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img class="img-fluid rounded-circle mb-3" src="img/testimonials-1.jpg" alt="">
-              <h5>Margaret E.</h5>
-              <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
+    </div>
+    <div class="modal fade" id="delete_account_2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="delete_account_2_title">刪除吳短更</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-danger" role="alert">
+              <p>刪除帳號是個不可回覆的動作！</p>
             </div>
           </div>
-          <div class="col-lg-4">
-            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img class="img-fluid rounded-circle mb-3" src="img/testimonials-2.jpg" alt="">
-              <h5>Fred S.</h5>
-              <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img class="img-fluid rounded-circle mb-3" src="img/testimonials-3.jpg" alt="">
-              <h5>Sarah	W.</h5>
-              <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to us!"</p>
-            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
           </div>
         </div>
       </div>
-    </section>-->
+    </div>
+    <div class="modal fade" id="delete_account_3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="delete_account_3_title">刪除彭阿翔</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-danger" role="alert">
+              <p>刪除帳號是個不可回覆的動作！</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Call to Action -->
     <section class="call-to-action text-white text-center">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <!--<div class="col-xl-9 mx-auto">
-            <h2 class="mb-4 display-4">註冊帳號</h2>
-          </div>-->
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="manage_account_panel">
             <table class="table table-custom">
               <thead>
                 <tr>
@@ -215,9 +206,8 @@
                   <td>張凱凱</td>
                   <td>學生</td>
                   <td>
-                    <a href="#" class="btn btn-info">詳細</a>
-                    <a href="#" class="btn btn-warning">編輯</a>
-                    <a href="#" class="btn btn-danger">刪除</a>
+                    <a href="manage-account-detail.html#account_info" class="btn btn-warning">詳細&編輯</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_account_0">刪除</button>
                   </td>
                 </tr>
                 <tr>
@@ -226,9 +216,8 @@
                   <td>廖阿翔</td>
                   <td>老師</td>
                   <td>
-                    <a href="#" class="btn btn-info">詳細</a>
-                    <a href="#" class="btn btn-warning">編輯</a>
-                    <a href="#" class="btn btn-danger">刪除</a>
+                    <a href="manage-account-detail.html#account_info" class="btn btn-warning">詳細&編輯</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_account_1">刪除</button>
                   </td>
                 </tr>
                 <tr>
@@ -237,9 +226,8 @@
                   <td>吳短更</td>
                   <td>管理員(root)</td>
                   <td>
-                    <a href="#" class="btn btn-info">詳細</a>
-                    <a href="#" class="btn btn-warning">編輯</a>
-                    <a href="#" class="btn btn-danger disabled">刪除</a>
+                    <a href="manage-account-detail.html#account_info" class="btn btn-warning">詳細&編輯</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_account_2">刪除</button>
                   </td>
                 </tr>
                 <tr>
@@ -248,14 +236,13 @@
                   <td>彭阿翔</td>
                   <td>管理員(root)</td>
                   <td>
-                    <a href="#" class="btn btn-info">詳細</a>
-                    <a href="#" class="btn btn-warning">編輯</a>
-                    <a href="#" class="btn btn-danger disabled">刪除</a>
+                    <a href="manage-account-detail.html#account_info" class="btn btn-warning">詳細&編輯</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_account_3">刪除</button>
                   </td>
                 </tr>
               </tbody>
             </table>
-            <a href="manage-account-add.html" class="btn btn-dark btn-lg my-3">新增帳號</a>
+            <a href="manage-account-add.html#add_account_form" class="btn btn-dark btn-lg my-3">新增帳號</a>
           </div>
         </div>
       </div>
@@ -302,10 +289,6 @@
         </div>
       </div>
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
 

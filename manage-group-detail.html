@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>輔仁大學資訊管理學系 - 專題評分系統 - 新增帳號(後台)</title>
+    <title>輔仁大學資訊管理學系 - 專題評分系統 - 分組資訊&編輯(後台)</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,11 +26,11 @@
       header.masthead{
         background: url("img/banners_0002.jpg") no-repeat center center;
       }
-      .call-to-action{
+      .call-to-action {
         /*#20c997*/
         background: #9fcdff no-repeat center center;
       }
-      #stu_area, #teacher_area{
+      #group_edit{
         display: none;
       }
     </style>
@@ -39,24 +39,9 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
       $(function(){
-          $("#level").change(function(){
-              switch ($("#level option:selected").val()) {
-                  case 'admin':
-                      $("#adm_area").show();
-                      $("#stu_area").hide();
-                      $("#teacher_area").hide();
-                      break;
-                  case 'teacher':
-                      $("#adm_area").hide();
-                      $("#stu_area").hide();
-                      $("#teacher_area").show();
-                      break;
-                  case 'student':
-                      $("#adm_area").hide();
-                      $("#stu_area").show();
-                      $("#teacher_area").hide();
-                      break;
-              }
+          $("#editAction").click(function(){
+              $("#group_info").hide();
+              $("#group_edit").show();
           });
       });
     </script>
@@ -127,18 +112,18 @@
       <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="hint_title">新增成功！</h5>
+            <h5 class="modal-title" id="hint_title">編輯第一組</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <div class="alert alert-success" role="alert">
-              <p>新增帳號成功！</p>
+              <p>編輯成功！</p>
             </div>
           </div>
           <div class="modal-footer">
-            <form action="manage-account.html#manage_account_panel" method="post">
+            <form action="manage-group.html#manage_group_panel" method="post">
               <!--data-dismiss="modal"-->
               <button type="submit" class="btn btn-secondary">確定</button>
             </form>
@@ -152,80 +137,76 @@
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="add_account_form">
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="group_info">
+            <table class="table table-custom">
+              <thead>
+                <tr>
+                  <th>帳號詳細資訊</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>組別: 第一組</td>
+                </tr>
+                <tr>
+                  <td>指導老師: 廖阿翔</td>
+                </tr>
+                <tr>
+                  <td>組長: 張凱凱</td>
+                </tr>
+                <tr>
+                  <td>組員1: 有長庚</td>
+                </tr>
+                <tr>
+                  <td>組員2: 張甲甲</td>
+                </tr>
+                <tr>
+                  <td>組員3: 呂東北</td>
+                </tr>
+                <tr>
+                  <td>組員3: 吳科維</td>
+                </tr>
+              </tbody>
+            </table>
+            <button type="button" id="editAction" class="btn btn-outline-dark btn-lg">編輯分組資訊</button>
+          </div>
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="group_edit">
             <form action="" method="post">
               <table class="table table-custom">
                 <thead>
                   <tr>
-                    <th>新增帳號(後台)</th>
+                    <th>編輯帳號(後台)</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>ldap帳號:<input type="text" name="ldap_user" class="cus-input"></td>
+                    <td>組別:<input type="text" name="group_number" class="cus-input" value="第一組"></td>
                   </tr>
                   <tr>
-                    <td>姓名:<input type="text" name="name" class="cus-input"></td>
+                    <td>指導老師:<input type="text" name="group_teacher" class="cus-input" value="廖阿翔"></td>
                   </tr>
                   <tr>
-                    <td>電子郵件:<input type="text" name="email" class="cus-input"></td>
+                    <td>組長:<input type="text" name="group_leader" class="cus-input" value="張凱凱"></td>
                   </tr>
                   <tr>
-                    <td>權限:
-                      <select class="cus-select" name="level" id="level">
-                        <option value="admin" selected>管理員</option>
-                        <option value="teacher">教師</option>
-                        <option value="student">學生</option>
-                      </select>
-                    </td>
+                    <td>組員1:<input type="text" name="group_member_1" class="cus-input" value="有長庚"></td>
+                  </tr>
+                  <tr>
+                    <td>組員2:<input type="text" name="group_member_1" class="cus-input" value="張甲甲"></td>
+                  </tr>
+                  <tr>
+                    <td>組員3:<input type="text" name="group_member_1" class="cus-input" value="呂東北"></td>
+                  </tr>
+                  <tr>
+                    <td>組員4:<input type="text" name="group_member_1" class="cus-input" value="吳科維"></td>
                   </tr>
                 </tbody>
               </table>
-              <table class="table table-custom" id="adm_area">
-                <thead>
-                  <tr>
-                    <th>管理者</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>職位:<input type="text" name="adm_work" class="cus-input"></td>
-                  </tr>
-                </tbody>
-              </table>
-              <table class="table table-custom" id="stu_area">
-                <thead>
-                  <tr>
-                    <th>學生</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>系級:<input type="text" name="stu_department_grade" class="cus-input"></td>
-                  </tr>
-                  <tr>
-                    <td>組別:<input type="text" name="stu_group" class="cus-input"></td>
-                  </tr>
-                </tbody>
-              </table>
-              <table class="table table-custom" id="teacher_area">
-                <thead>
-                  <tr>
-                    <th>教師</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>等級:<input type="text" name="teacher_level" class="cus-input"></td>
-                  </tr>
-                  <tr>
-                    <td>職位:<input type="text" name="teacher_work" class="cus-input"></td>
-                  </tr>
-                </tbody>
-              </table>
-              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hint_msg">新增</button>
+              <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#hint_msg">編輯</button>
             </form>
-            <a href="manage-account.html#manage_account_panel" class="btn btn-dark btn-lg my-3">回帳號權限管理頁面</a>
+          </div>
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+            <a href="manage-group.html#manage_group_panel" class="btn btn-dark btn-lg my-3">回分組管理頁面</a>
           </div>
         </div>
       </div>

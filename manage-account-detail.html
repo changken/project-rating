@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>輔仁大學資訊管理學系 - 專題評分系統 - 新增帳號(後台)</title>
+    <title>輔仁大學資訊管理學系 - 專題評分系統 - 帳號資訊&編輯(後台)</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,11 +26,11 @@
       header.masthead{
         background: url("img/banners_0002.jpg") no-repeat center center;
       }
-      .call-to-action{
+      .call-to-action {
         /*#20c997*/
         background: #9fcdff no-repeat center center;
       }
-      #stu_area, #teacher_area{
+      #account_edit, #adm_area, #teacher_area{
         display: none;
       }
     </style>
@@ -39,6 +39,10 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
       $(function(){
+          $("#editAction").click(function(){
+              $("#account_info").hide();
+              $("#account_edit").show();
+          });
           $("#level").change(function(){
               switch ($("#level option:selected").val()) {
                   case 'admin':
@@ -127,14 +131,14 @@
       <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="hint_title">新增成功！</h5>
+            <h5 class="modal-title" id="hint_title">編輯張凱凱</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <div class="alert alert-success" role="alert">
-              <p>新增帳號成功！</p>
+              <p>編輯成功！</p>
             </div>
           </div>
           <div class="modal-footer">
@@ -152,30 +156,60 @@
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="add_account_form">
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="account_info">
+            <table class="table table-custom">
+              <thead>
+                <tr>
+                  <th>帳號詳細資訊</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>編輯: 1</td>
+                </tr>
+                <tr>
+                  <td>ldap帳號: 406401xxx</td>
+                </tr>
+                <tr>
+                  <td>姓名: 張凱凱</td>
+                </tr>
+                <tr>
+                  <td>權限: 學生</td>
+                </tr>
+                <tr>
+                  <td>系級: 資管假甲</td>
+                </tr>
+                <tr>
+                  <td>分組: 第87組</td>
+                </tr>
+              </tbody>
+            </table>
+            <button type="button" id="editAction" class="btn btn-outline-dark btn-lg">編輯帳號資訊</button>
+          </div>
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="account_edit">
             <form action="" method="post">
               <table class="table table-custom">
                 <thead>
                   <tr>
-                    <th>新增帳號(後台)</th>
+                    <th>編輯帳號(後台)</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>ldap帳號:<input type="text" name="ldap_user" class="cus-input"></td>
+                    <td>ldap帳號:<input type="text" name="ldap_user" class="cus-input" value="406401xxx"></td>
                   </tr>
                   <tr>
-                    <td>姓名:<input type="text" name="name" class="cus-input"></td>
+                    <td>姓名:<input type="text" name="name" class="cus-input" value="張凱凱"></td>
                   </tr>
                   <tr>
-                    <td>電子郵件:<input type="text" name="email" class="cus-input"></td>
+                    <td>電子郵件:<input type="text" name="email" class="cus-input" value="94879487@mail.fju.edu.tw"></td>
                   </tr>
                   <tr>
                     <td>權限:
                       <select class="cus-select" name="level" id="level">
-                        <option value="admin" selected>管理員</option>
+                        <option value="admin">管理員</option>
                         <option value="teacher">教師</option>
-                        <option value="student">學生</option>
+                        <option value="student" selected>學生</option>
                       </select>
                     </td>
                   </tr>
@@ -201,10 +235,10 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>系級:<input type="text" name="stu_department_grade" class="cus-input"></td>
+                    <td>系級:<input type="text" name="stu_department_grade" class="cus-input" value="資管假假"></td>
                   </tr>
                   <tr>
-                    <td>組別:<input type="text" name="stu_group" class="cus-input"></td>
+                    <td>組別:<input type="text" name="stu_group" class="cus-input" value="第87組"></td>
                   </tr>
                 </tbody>
               </table>
@@ -223,8 +257,10 @@
                   </tr>
                 </tbody>
               </table>
-              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hint_msg">新增</button>
+              <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#hint_msg">編輯</button>
             </form>
+          </div>
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
             <a href="manage-account.html#manage_account_panel" class="btn btn-dark btn-lg my-3">回帳號權限管理頁面</a>
           </div>
         </div>

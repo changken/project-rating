@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>輔仁大學資訊管理學系 - 專題評分系統 - 新增帳號(後台)</title>
+    <title>輔仁大學資訊管理學系 - 專題評分系統 - 專題分組管理</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,36 +30,12 @@
         /*#20c997*/
         background: #9fcdff no-repeat center center;
       }
-      #stu_area, #teacher_area{
-        display: none;
-      }
     </style>
+
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script>
-      $(function(){
-          $("#level").change(function(){
-              switch ($("#level option:selected").val()) {
-                  case 'admin':
-                      $("#adm_area").show();
-                      $("#stu_area").hide();
-                      $("#teacher_area").hide();
-                      break;
-                  case 'teacher':
-                      $("#adm_area").hide();
-                      $("#stu_area").hide();
-                      $("#teacher_area").show();
-                      break;
-                  case 'student':
-                      $("#adm_area").hide();
-                      $("#stu_area").show();
-                      $("#teacher_area").hide();
-                      break;
-              }
-          });
-      });
-    </script>
+
   </head>
 
   <body>
@@ -88,9 +64,9 @@
                 後台功能
               </a>
               <div class="dropdown-menu" aria-labelledby="backpanel">
-                <a class="dropdown-item active" href="manage-account.html">帳號權限管理</a>
+                <a class="dropdown-item" href="manage-account.html">帳號權限管理</a>
                 <a class="dropdown-item disabled" href="#">專題評分管理</a>
-                <a class="dropdown-item" href="manage-group.html">專題分組管理</a>
+                <a class="dropdown-item active" href="manage-group.html">專題分組管理</a>
                 <a class="dropdown-item disabled" href="#">專題文件管理</a>
               </div>
             </li>
@@ -123,25 +99,82 @@
       </div>
     </header>
 
-    <div class="modal fade" id="hint_msg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="delete_group_0" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="hint_title">新增成功！</h5>
+            <h5 class="modal-title" id="delete_group_0_title">刪除第一組</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <div class="alert alert-success" role="alert">
-              <p>新增帳號成功！</p>
+            <div class="alert alert-danger" role="alert">
+              <p>刪除分組是個不可回復的動作！</p>
             </div>
           </div>
           <div class="modal-footer">
-            <form action="manage-account.html#manage_account_panel" method="post">
-              <!--data-dismiss="modal"-->
-              <button type="submit" class="btn btn-secondary">確定</button>
-            </form>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="delete_group_1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="delete_group_1_title">刪除第二組</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-danger" role="alert">
+              <p>刪除分組是個不可回復的動作！</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="delete_group_2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="delete_group_2_title">刪除第三組</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-danger" role="alert">
+              <p>刪除分組是個不可回復的動作！</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="delete_group_3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="delete_group_3_title">刪除第八十七組</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-danger" role="alert">
+              <p>刪除分組是個不可回復的動作！</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
           </div>
         </div>
       </div>
@@ -152,80 +185,59 @@
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="add_account_form">
-            <form action="" method="post">
-              <table class="table table-custom">
-                <thead>
-                  <tr>
-                    <th>新增帳號(後台)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>ldap帳號:<input type="text" name="ldap_user" class="cus-input"></td>
-                  </tr>
-                  <tr>
-                    <td>姓名:<input type="text" name="name" class="cus-input"></td>
-                  </tr>
-                  <tr>
-                    <td>電子郵件:<input type="text" name="email" class="cus-input"></td>
-                  </tr>
-                  <tr>
-                    <td>權限:
-                      <select class="cus-select" name="level" id="level">
-                        <option value="admin" selected>管理員</option>
-                        <option value="teacher">教師</option>
-                        <option value="student">學生</option>
-                      </select>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <table class="table table-custom" id="adm_area">
-                <thead>
-                  <tr>
-                    <th>管理者</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>職位:<input type="text" name="adm_work" class="cus-input"></td>
-                  </tr>
-                </tbody>
-              </table>
-              <table class="table table-custom" id="stu_area">
-                <thead>
-                  <tr>
-                    <th>學生</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>系級:<input type="text" name="stu_department_grade" class="cus-input"></td>
-                  </tr>
-                  <tr>
-                    <td>組別:<input type="text" name="stu_group" class="cus-input"></td>
-                  </tr>
-                </tbody>
-              </table>
-              <table class="table table-custom" id="teacher_area">
-                <thead>
-                  <tr>
-                    <th>教師</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>等級:<input type="text" name="teacher_level" class="cus-input"></td>
-                  </tr>
-                  <tr>
-                    <td>職位:<input type="text" name="teacher_work" class="cus-input"></td>
-                  </tr>
-                </tbody>
-              </table>
-              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hint_msg">新增</button>
-            </form>
-            <a href="manage-account.html#manage_account_panel" class="btn btn-dark btn-lg my-3">回帳號權限管理頁面</a>
+          <div class="col-md-10 col-lg-8 col-xl-8 mx-auto" id="manage_group_panel">
+            <table class="table table-custom">
+              <thead>
+                <tr>
+                  <th colspan="5">專題分組管理</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>組別</td>
+                  <td>指導老師</td>
+                  <td>組長</td>
+                  <td>動作</td>
+                </tr>
+                <tr>
+                  <td>第一組</td>
+                  <td>052121(廖阿翔)</td>
+                  <td>406401xxx(張凱凱)</td>
+                  <td>
+                    <a href="manage-group-detail.html#group_info" class="btn btn-warning">詳細&編輯</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_group_0">刪除</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>第二組</td>
+                  <td>052121(廖阿翔)</td>
+                  <td>406401487(無短耕)</td>
+                  <td>
+                    <a href="manage-group-detail.html#group_info" class="btn btn-warning">詳細&編輯</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_group_1">刪除</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>第三組</td>
+                  <td>052121(廖阿翔)</td>
+                  <td>406401608(程輿情)</td>
+                  <td>
+                    <a href="manage-group-detail.html#group_info" class="btn btn-warning">詳細&編輯</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_group_2">刪除</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>第八十七組</td>
+                  <td>043077(彭阿翔)</td>
+                  <td>406401987(賴佑瓜)</td>
+                  <td>
+                    <a href="manage-group-detail.html#group_info" class="btn btn-warning">詳細&編輯</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_group_3">刪除</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <a href="manage-group-add.html#add_group_form" class="btn btn-dark btn-lg my-3">新增分組</a>
           </div>
         </div>
       </div>
