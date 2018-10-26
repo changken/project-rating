@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>輔仁大學資訊管理學系 - 專題評分系統 - 分組資訊&編輯(後台)</title>
+    <title>輔仁大學資訊管理學系 - 專題評分系統 - 新增專案文件(後台)</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,25 +26,17 @@
       header.masthead{
         background: url("img/banners_0002.jpg") no-repeat center center;
       }
-      .call-to-action {
+      .call-to-action{
         /*#20c997*/
         background: #9fcdff no-repeat center center;
       }
-      #group_edit{
+      #stu_area, #teacher_area{
         display: none;
       }
     </style>
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script>
-      $(function(){
-          $("#editAction").click(function(){
-              $("#group_info").hide();
-              $("#group_edit").show();
-          });
-      });
-    </script>
   </head>
 
   <body>
@@ -112,18 +104,18 @@
       <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="hint_title">編輯第一組</h5>
+            <h5 class="modal-title" id="hint_title">新增成功！</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <div class="alert alert-success" role="alert">
-              <p>編輯成功！</p>
+              <p>新增專案文件成功！</p>
             </div>
           </div>
           <div class="modal-footer">
-            <form action="manage-group.html#manage_group_panel" method="post">
+            <form action="manage-file.html#manage_file_panel" method="post">
               <!--data-dismiss="modal"-->
               <button type="submit" class="btn btn-secondary">確定</button>
             </form>
@@ -137,90 +129,37 @@
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="group_info">
-            <table class="table table-custom">
-              <thead>
-                <tr>
-                  <th colspan="2">分組詳細資訊</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>組別:</td>
-                  <td>第一組</td>
-                </tr>
-                <tr>
-                  <td>指導老師:</td>
-                  <td>廖阿翔</td>
-                </tr>
-                <tr>
-                  <td>組長:</td>
-                  <td>張凱凱</td>
-                </tr>
-                <tr>
-                  <td>組員1:</td>
-                  <td>有長庚</td>
-                </tr>
-                <tr>
-                  <td>組員2:</td>
-                  <td>張甲甲</td>
-                </tr>
-                <tr>
-                  <td>組員3:</td>
-                  <td>呂東北</td>
-                </tr>
-                <tr>
-                  <td>組員3:</td>
-                  <td>吳科維</td>
-                </tr>
-              </tbody>
-            </table>
-            <button type="button" id="editAction" class="btn btn-outline-dark btn-lg">編輯分組資訊</button>
-          </div>
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="group_edit">
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="add_file_form">
             <form action="" method="post">
               <table class="table table-custom">
                 <thead>
                   <tr>
-                    <th colspan="2">編輯分組(後台)</th>
+                    <th colspan="2">新增專案文件(後台)</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>組別:</td>
-                    <td><input type="text" name="group_number" class="cus-input" value="第一組"></td>
+                    <td>項目名稱:</td>
+                    <td><input type="text" name="file_name" class="cus-input"></td>
                   </tr>
                   <tr>
-                    <td>指導老師:</td>
-                    <td><input type="text" name="group_teacher" class="cus-input" value="廖阿翔"></td>
+                    <td>文件類型:</td>
+                    <td>
+                      <select name="file_type" class="cus-select">
+                        <option value="pdf" selected>pdf</option>
+                        <option value="plain_text">純文字</option>
+                      </select>
+                    </td>
                   </tr>
                   <tr>
-                    <td>組長:</td>
-                    <td><input type="text" name="group_leader" class="cus-input" value="張凱凱"></td>
-                  </tr>
-                  <tr>
-                    <td>組員1:</td>
-                    <td><input type="text" name="group_member_1" class="cus-input" value="有長庚"></td>
-                  </tr>
-                  <tr>
-                    <td>組員2:</td>
-                    <td><input type="text" name="group_member_1" class="cus-input" value="張甲甲"></td>
-                  </tr>
-                  <tr>
-                    <td>組員3:</td>
-                    <td><input type="text" name="group_member_1" class="cus-input" value="呂東北"></td>
-                  </tr>
-                  <tr>
-                    <td>組員4:</td>
-                    <td><input type="text" name="group_member_1" class="cus-input" value="吳科維"></td>
+                    <td>上傳期限:</td>
+                    <td><input type="text" name="file_upload_dead_line" class="cus-input" placeholder="yyyy/mm/dd"></td>
                   </tr>
                 </tbody>
               </table>
-              <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#hint_msg">編輯</button>
+              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hint_msg">新增</button>
             </form>
-          </div>
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <a href="manage-group.html#manage_group_panel" class="btn btn-dark btn-lg my-3">回分組管理頁面</a>
+            <a href="manage-file.html#manage_file_panel" class="btn btn-dark btn-lg my-3">回專案文件管理頁面</a>
           </div>
         </div>
       </div>

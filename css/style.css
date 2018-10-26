@@ -9,8 +9,23 @@ header.masthead{
 }
 
 /*custom*/
+.word-0{
+    font-size: 22px;
+}
 .word-1{
     font-size: 24px;
+}
+.word-2{
+    font-size: 26px;
+}
+.word-3{
+    font-size: 28px;
+}
+.word-4{
+    font-size: 30px;
+}
+.word-5{
+    font-size: 32px;
 }
 .nav-custom{
     font-size: 20px;
@@ -32,9 +47,29 @@ table.table-custom tbody tr td{
     font-size: 24px;
     border-bottom: 4px solid white;
 }
-/*another table color*/
-.table-custom.table-red{
-    background-color: #FFDEDE;
+/*red table*/
+table.table-custom.table-red thead tr th{
+    background-color: #AA0000;
+}
+table.table-custom.table-red tbody tr td{
+    background-color: #FFF2F2;
+    color: black;
+    border-bottom: 4px solid #FF8282;
+}
+table.table-custom.table-red tbody tr td:hover{
+    background-color: #FFD4D4;
+}
+/*grey table*/
+table.table-custom.table-grey thead tr th{
+    background-color: #828282;
+}
+table.table-custom.table-grey tbody tr td{
+    background-color: #F5F5F5;
+    color: black;
+    border-bottom: 4px solid #8C8C8C;
+}
+table.table-custom.table-grey tbody tr td:hover{
+    background-color: #E8E8E8;
 }
 /*input field*/
 input.cus-input{

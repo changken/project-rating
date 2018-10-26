@@ -91,7 +91,7 @@
                 <a class="dropdown-item active" href="manage-account.html">帳號權限管理</a>
                 <a class="dropdown-item disabled" href="#">專題評分管理</a>
                 <a class="dropdown-item" href="manage-group.html">專題分組管理</a>
-                <a class="dropdown-item disabled" href="#">專題文件管理</a>
+                <a class="dropdown-item" href="manage-file.html">專題文件管理</a>
               </div>
             </li>
           </ul>
@@ -157,21 +157,25 @@
               <table class="table table-custom">
                 <thead>
                   <tr>
-                    <th>新增帳號(後台)</th>
+                    <th colspan="2">新增帳號(後台)</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>ldap帳號:<input type="text" name="ldap_user" class="cus-input"></td>
+                    <td>ldap帳號:</td>
+                    <td><input type="text" name="ldap_user" class="cus-input"></td>
                   </tr>
                   <tr>
-                    <td>姓名:<input type="text" name="name" class="cus-input"></td>
+                    <td>姓名:</td>
+                    <td><input type="text" name="name" class="cus-input"></td>
                   </tr>
                   <tr>
-                    <td>電子郵件:<input type="text" name="email" class="cus-input"></td>
+                    <td>電子郵件:</td>
+                    <td><input type="text" name="email" class="cus-input"></td>
                   </tr>
                   <tr>
-                    <td>權限:
+                    <td>權限:</td>
+                    <td>
                       <select class="cus-select" name="level" id="level">
                         <option value="admin" selected>管理員</option>
                         <option value="teacher">教師</option>
@@ -184,42 +188,47 @@
               <table class="table table-custom" id="adm_area">
                 <thead>
                   <tr>
-                    <th>管理者</th>
+                    <th colspan="2">管理者</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>職位:<input type="text" name="adm_work" class="cus-input"></td>
+                    <td>職位:</td>
+                    <td><input type="text" name="adm_work" class="cus-input"></td>
                   </tr>
                 </tbody>
               </table>
               <table class="table table-custom" id="stu_area">
                 <thead>
                   <tr>
-                    <th>學生</th>
+                    <th colspan="2">學生</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>系級:<input type="text" name="stu_department_grade" class="cus-input"></td>
+                    <td>系級:</td>
+                    <td><input type="text" name="stu_department_grade" class="cus-input"></td>
                   </tr>
                   <tr>
-                    <td>組別:<input type="text" name="stu_group" class="cus-input"></td>
+                    <td>組別:</td>
+                    <td><input type="text" name="stu_group" class="cus-input"></td>
                   </tr>
                 </tbody>
               </table>
               <table class="table table-custom" id="teacher_area">
                 <thead>
                   <tr>
-                    <th>教師</th>
+                    <th colspan="2">教師</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>等級:<input type="text" name="teacher_level" class="cus-input"></td>
+                    <td>等級:</td>
+                    <td><input type="text" name="teacher_level" class="cus-input"></td>
                   </tr>
                   <tr>
-                    <td>職位:<input type="text" name="teacher_work" class="cus-input"></td>
+                    <td>職位:</td>
+                    <td><input type="text" name="teacher_work" class="cus-input"></td>
                   </tr>
                 </tbody>
               </table>
