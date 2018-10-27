@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>輔仁大學資訊管理學系 - 專題評分系統 - 分組資訊&編輯(後台)</title>
+    <title>輔仁大學資訊管理學系 - 專題評分系統 - 專題評分管理</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,25 +26,16 @@
       header.masthead{
         background: url("img/banners_0002.jpg") no-repeat center center;
       }
-      .call-to-action {
+      .call-to-action{
         /*#20c997*/
         background: #9fcdff no-repeat center center;
       }
-      #group_edit{
-        display: none;
-      }
     </style>
+
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script>
-      $(function(){
-          $("#editAction").click(function(){
-              $("#group_info").hide();
-              $("#group_edit").show();
-          });
-      });
-    </script>
+
   </head>
 
   <body>
@@ -73,8 +64,8 @@
                 後台功能
               </a>
               <div class="dropdown-menu" aria-labelledby="backpanel">
-                <a class="dropdown-item active" href="manage-account.html">帳號權限管理</a>
-                <a class="dropdown-item" href="manage-rating.html">專題評分管理</a>
+                <a class="dropdown-item" href="manage-account.html">帳號權限管理</a>
+                <a class="dropdown-item active" href="manage-rating.html">專題評分管理</a>
                 <a class="dropdown-item" href="manage-group.html">專題分組管理</a>
                 <a class="dropdown-item" href="manage-file.html">專題文件管理</a>
               </div>
@@ -108,119 +99,64 @@
       </div>
     </header>
 
-    <div class="modal fade" id="hint_msg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="hint_title">編輯第一組</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="alert alert-success" role="alert">
-              <p>編輯成功！</p>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <form action="manage-group.html#manage_group_panel" method="post">
-              <!--data-dismiss="modal"-->
-              <button type="submit" class="btn btn-secondary">確定</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Call to Action -->
     <section class="call-to-action text-white text-center">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="group_info">
+          <div class="col-md-10 col-lg-8 col-xl-8 mx-auto" id="manage_rating_panel">
             <table class="table table-custom">
               <thead>
                 <tr>
-                  <th colspan="2">分組詳細資訊</th>
+                  <th colspan="5">專題評分管理</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>組別:</td>
+                  <td>組別</td>
+                  <td>指導老師</td>
+                  <td>組長</td>
+                  <td>總評分</td>
+                  <td>動作</td>
+                </tr>
+                <tr>
                   <td>第一組</td>
-                </tr>
-                <tr>
-                  <td>指導老師:</td>
                   <td>廖阿翔</td>
-                </tr>
-                <tr>
-                  <td>組長:</td>
                   <td>張凱凱</td>
+                  <td>99</td>
+                  <td>
+                    <a href="manage-rating-detail.html#rating_info" class="btn btn-warning">詳細</a>
+                  </td>
                 </tr>
                 <tr>
-                  <td>組員1:</td>
-                  <td>有長庚</td>
+                  <td>第二組</td>
+                  <td>廖阿翔</td>
+                  <td>無短耕</td>
+                  <td>80</td>
+                  <td>
+                    <a href="manage-rating-detail.html#rating_info" class="btn btn-warning">詳細</a>
+                  </td>
                 </tr>
                 <tr>
-                  <td>組員2:</td>
-                  <td>張甲甲</td>
+                  <td>第三組</td>
+                  <td>廖阿翔</td>
+                  <td>程輿情</td>
+                  <td>88</td>
+                  <td>
+                    <a href="manage-rating-detail.html#rating_info" class="btn btn-warning">詳細</a>
+                  </td>
                 </tr>
                 <tr>
-                  <td>組員3:</td>
-                  <td>呂東北</td>
-                </tr>
-                <tr>
-                  <td>組員3:</td>
-                  <td>吳科維</td>
+                  <td>第八十七組</td>
+                  <td>彭阿翔</td>
+                  <td>賴佑瓜</td>
+                  <td>90</td>
+                  <td>
+                    <a href="manage-rating-detail.html#rating_info" class="btn btn-warning">詳細</a>
+                  </td>
                 </tr>
               </tbody>
             </table>
-            <button type="button" id="editAction" class="btn btn-outline-dark btn-lg">編輯分組資訊</button>
-          </div>
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="group_edit">
-            <form action="" method="post">
-              <table class="table table-custom">
-                <thead>
-                  <tr>
-                    <th colspan="2">編輯分組(後台)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>組別:</td>
-                    <td><input type="text" name="group_number" class="cus-input" value="第一組"></td>
-                  </tr>
-                  <tr>
-                    <td>指導老師:</td>
-                    <td><input type="text" name="group_teacher" class="cus-input" value="廖阿翔"></td>
-                  </tr>
-                  <tr>
-                    <td>組長:</td>
-                    <td><input type="text" name="group_leader" class="cus-input" value="張凱凱"></td>
-                  </tr>
-                  <tr>
-                    <td>組員1:</td>
-                    <td><input type="text" name="group_member_1" class="cus-input" value="有長庚"></td>
-                  </tr>
-                  <tr>
-                    <td>組員2:</td>
-                    <td><input type="text" name="group_member_1" class="cus-input" value="張甲甲"></td>
-                  </tr>
-                  <tr>
-                    <td>組員3:</td>
-                    <td><input type="text" name="group_member_1" class="cus-input" value="呂東北"></td>
-                  </tr>
-                  <tr>
-                    <td>組員4:</td>
-                    <td><input type="text" name="group_member_1" class="cus-input" value="吳科維"></td>
-                  </tr>
-                </tbody>
-              </table>
-              <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#hint_msg">編輯</button>
-            </form>
-          </div>
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <a href="manage-group.html#manage_group_panel" class="btn btn-dark btn-lg my-3">回分組管理頁面</a>
           </div>
         </div>
       </div>

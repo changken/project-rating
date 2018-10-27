@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>輔仁大學資訊管理學系 - 專題評分系統 - 分組資訊&編輯(後台)</title>
+    <title>輔仁大學資訊管理學系 - 專題評分系統 - 評分資訊&編輯(後台)</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,8 +30,12 @@
         /*#20c997*/
         background: #9fcdff no-repeat center center;
       }
-      #group_edit{
+      #rating_edit{
         display: none;
+      }
+      input.cus-input{
+        font-size: 16px;
+        padding: 2px;
       }
     </style>
     <!-- Bootstrap core JavaScript -->
@@ -39,9 +43,9 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
       $(function(){
-          $("#editAction").click(function(){
-              $("#group_info").hide();
-              $("#group_edit").show();
+          $(".editAction").click(function(){
+              $("#rating_edit").fadeToggle();
+              //$("#rating_edit").show();
           });
       });
     </script>
@@ -108,11 +112,35 @@
       </div>
     </header>
 
+    <div class="modal fade" id="delete_hint_msg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="delete_hint_msg_title">刪除老師評分</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-danger" role="alert">
+              <p>此動作不可回復！</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <form action="manage-rating-detail.html#rating_info" method="post">
+              <!--data-dismiss="modal"-->
+              <button type="submit" class="btn btn-secondary">確定</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="modal fade" id="hint_msg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="hint_title">編輯第一組</h5>
+            <h5 class="modal-title" id="hint_title">編輯老師評分</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -123,7 +151,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <form action="manage-group.html#manage_group_panel" method="post">
+            <form action="manage-rating.html#manage_rating_panel" method="post">
               <!--data-dismiss="modal"-->
               <button type="submit" class="btn btn-secondary">確定</button>
             </form>
@@ -137,11 +165,11 @@
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="group_info">
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="rating_info">
             <table class="table table-custom">
               <thead>
                 <tr>
-                  <th colspan="2">分組詳細資訊</th>
+                  <th colspan="2">評分詳細資訊</th>
                 </tr>
               </thead>
               <tbody>
@@ -157,62 +185,139 @@
                   <td>組長:</td>
                   <td>張凱凱</td>
                 </tr>
+              </tbody>
+            </table>
+            <table class="table table-custom table-red">
+              <thead>
                 <tr>
-                  <td>組員1:</td>
-                  <td>有長庚</td>
+                  <th colspan="5">已評分的老師</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>教職員編號</td>
+                  <td>教師名稱</td>
+                  <td>總原始成績</td>
+                  <td>日期</td>
+                  <td>動作</td>
                 </tr>
                 <tr>
-                  <td>組員2:</td>
-                  <td>張甲甲</td>
+                  <td>507881</td>
+                  <td>陳智與</td>
+                  <td>100</td>
+                  <td>2018/10/27</td>
+                  <td>
+                    <button type="button" class="btn btn-warning editAction">編輯</button>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_hint_msg">刪除</button>
+                  </td>
                 </tr>
                 <tr>
-                  <td>組員3:</td>
-                  <td>呂東北</td>
+                  <td>507881</td>
+                  <td>陳智與</td>
+                  <td>100</td>
+                  <td>2018/10/27</td>
+                  <td>
+                    <button type="button" class="btn btn-warning editAction">編輯</button>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_hint_msg">刪除</button>
+                  </td>
                 </tr>
                 <tr>
-                  <td>組員3:</td>
-                  <td>吳科維</td>
+                  <td>507881</td>
+                  <td>陳智與</td>
+                  <td>100</td>
+                  <td>2018/10/27</td>
+                  <td>
+                    <button type="button" class="btn btn-warning editAction">編輯</button>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_hint_msg">刪除</button>
+                  </td>
                 </tr>
               </tbody>
             </table>
-            <button type="button" id="editAction" class="btn btn-outline-dark btn-lg">編輯分組資訊</button>
           </div>
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="group_edit">
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="rating_edit">
             <form action="" method="post">
-              <table class="table table-custom">
+              <table class="table table-custom table-grey">
                 <thead>
                   <tr>
-                    <th colspan="2">編輯分組(後台)</th>
+                    <th colspan="4">編輯文件評分</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>組別:</td>
-                    <td><input type="text" name="group_number" class="cus-input" value="第一組"></td>
+                    <td>教職員編號:</td>
+                    <td><input type="text" name="teacher_number" class="cus-input" value="507881"></td>
+                    <td>教師名稱:</td>
+                    <td><input type="text" name="teacher_name" class="cus-input" value="陳智與"></td>
                   </tr>
                   <tr>
-                    <td>指導老師:</td>
-                    <td><input type="text" name="group_teacher" class="cus-input" value="廖阿翔"></td>
+                    <td rowspan="2">文件初稿(30%):</td>
+                    <td>系統描述</td>
+                    <td>需求規格</td>
+                    <td>設計規格</td>
                   </tr>
                   <tr>
-                    <td>組長:</td>
-                    <td><input type="text" name="group_leader" class="cus-input" value="張凱凱"></td>
+                    <td><input type="text" name="system_score" class="cus-input" value="90"></td>
+                    <td><input type="text" name="require_score" class="cus-input" value="80"></td>
+                    <td><input type="text" name="design_score" class="cus-input" value="70"></td>
                   </tr>
                   <tr>
-                    <td>組員1:</td>
-                    <td><input type="text" name="group_member_1" class="cus-input" value="有長庚"></td>
+                    <td rowspan="4">系統功能(30%):</td>
+                    <td>功能創新性</td>
+                    <td>功能實用性</td>
+                    <td>系統技術性</td>
                   </tr>
                   <tr>
-                    <td>組員2:</td>
-                    <td><input type="text" name="group_member_1" class="cus-input" value="張甲甲"></td>
+                    <td><input type="text" name="innovation_score" class="cus-input" value="80"></td>
+                    <td><input type="text" name="practical_score" class="cus-input" value="70"></td>
+                    <td><input type="text" name="technology_score" class="cus-input" value="90"></td>
                   </tr>
                   <tr>
-                    <td>組員3:</td>
-                    <td><input type="text" name="group_member_1" class="cus-input" value="呂東北"></td>
+                    <td>介面親和性</td>
+                    <td>內容豐富性</td>
+                    <td>是否要補驗收</td>
                   </tr>
                   <tr>
-                    <td>組員4:</td>
-                    <td><input type="text" name="group_member_1" class="cus-input" value="吳科維"></td>
+                    <td><input type="text" name="interface_score" class="cus-input" value="80"></td>
+                    <td><input type="text" name="content_score" class="cus-input" value="70"></td>
+                    <td><input type="checkbox" name="check_again"></td>
+                  </tr>
+                  <tr>
+                    <td rowspan="2">評語:</td>
+                    <td>優點:</td>
+                    <td colspan="2"><textarea rows="3" name="advantage">夭壽讚!</textarea></td>
+                  </tr>
+                  <tr>
+                    <td>缺點:</td>
+                    <td colspan="2"><textarea rows="3" name="disadvantage">完美!</textarea></td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="table table-custom table-grey">
+                <thead>
+                  <tr>
+                    <th colspan="5">編輯發表評分</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td rowspan="3">專 題
+                      發 表
+                      臨 場
+                      表 現</td>
+                    <td>展示(15%)</td>
+                    <td>應對(10%)</td>
+                    <td>時間控制(5%)</td>
+                    <td>系統功能(10%)</td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" name="demo" class="cus-input" value="70"></td>
+                    <td><input type="text" name="talk" class="cus-input" value="80"></td>
+                    <td><input type="text" name="time" class="cus-input" value="75"></td>
+                    <td><input type="text" name="function" class="cus-input" value="65"></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">請評審給予整組綜合性評語：</td>
+                    <td colspan="2"><textarea rows="3" name="comment">夭壽讚!</textarea></td>
                   </tr>
                 </tbody>
               </table>
@@ -220,7 +325,7 @@
             </form>
           </div>
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <a href="manage-group.html#manage_group_panel" class="btn btn-dark btn-lg my-3">回分組管理頁面</a>
+            <a href="manage-rating.html#manage_rating_panel" class="btn btn-dark btn-lg my-3">回專案評分管理頁面</a>
           </div>
         </div>
       </div>
