@@ -81,6 +81,7 @@ input.cus-input{
 input.cus-input:hover{
     border: 5px solid #10707f;
 }
+/*select field*/
 select.cus-select{
     padding: 12px;
     font-size: 22px;

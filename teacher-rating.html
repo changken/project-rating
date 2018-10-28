@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>輔仁大學資訊管理學系 - 專題評分系統 - 帳號權限管理</title>
+    <title>輔仁大學資訊管理學系 - 專題評分系統 - 老師評分</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -64,7 +64,7 @@
                 老師功能
               </a>
               <div class="dropdown-menu" aria-labelledby="teacherpanel">
-                <a class="dropdown-item" href="teacher-rating.html">評分</a>
+                <a class="dropdown-item active" href="teacher-rating.html">評分</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -72,8 +72,8 @@
                 後台功能
               </a>
               <div class="dropdown-menu" aria-labelledby="backpanel">
-                <a class="dropdown-item active" href="manage-account.html">帳號權限管理</a>
-                <a class="dropdown-item" href="manage-rating.html">專題評分管理</a>
+                <a class="dropdown-item" href="manage-account.html">帳號權限管理</a>
+                <a class="dropdown-item active" href="manage-rating.html">專題評分管理</a>
                 <a class="dropdown-item" href="manage-group.html">專題分組管理</a>
                 <a class="dropdown-item" href="manage-file.html">專題文件管理</a>
               </div>
@@ -107,150 +107,59 @@
       </div>
     </header>
 
-    <div class="modal fade" id="delete_account_0" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="delete_account_0_title">刪除張凱凱</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="alert alert-danger" role="alert">
-              <p>刪除帳號是個不可回覆的動作！</p>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="delete_account_1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="delete_account_1_title">刪除廖阿翔</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="alert alert-danger" role="alert">
-              <p>刪除帳號是個不可回覆的動作！</p>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="delete_account_2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="delete_account_2_title">刪除吳短更</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="alert alert-danger" role="alert">
-              <p>刪除帳號是個不可回覆的動作！</p>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="delete_account_3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="delete_account_3_title">刪除彭阿翔</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="alert alert-danger" role="alert">
-              <p>刪除帳號是個不可回覆的動作！</p>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Call to Action -->
     <section class="call-to-action text-white text-center">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="manage_account_panel">
-            <table class="table table-custom">
+          <div class="col-md-10 col-lg-8 col-xl-8 mx-auto" id="manage_rating_panel">
+            <table class="table table-custom table-grey">
               <thead>
                 <tr>
-                  <th colspan="5">帳號權限管理</th>
+                  <th colspan="6">以下為可評分的組別</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>編號</td>
-                  <td>ldap帳號</td>
-                  <td>姓名</td>
-                  <td>權限</td>
+                  <td>組別</td>
+                  <td>指導老師</td>
+                  <td>組長</td>
+                  <td>文件評分</td>
+                  <td>發表評分</td>
                   <td>動作</td>
                 </tr>
                 <tr>
-                  <td>1</td>
-                  <td>406401xxx</td>
-                  <td>張凱凱</td>
-                  <td>學生</td>
-                  <td>
-                    <a href="manage-account-detail.html#account_info" class="btn btn-warning">詳細&編輯</a>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_account_0">刪除</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>052121</td>
+                  <td>第一組</td>
                   <td>廖阿翔</td>
-                  <td>老師</td>
+                  <td>張凱凱</td>
+                  <td><span class="badge badge-success word-0">已評分</span></td>
+                  <td><span class="badge badge-danger word-0">未評分</span></td>
                   <td>
-                    <a href="manage-account-detail.html#account_info" class="btn btn-warning">詳細&編輯</a>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_account_1">刪除</button>
+                    <a href="teacher-rating-detail.html#rating_info" class="btn btn-primary btn-lg">評分</a>
                   </td>
                 </tr>
                 <tr>
-                  <td>3</td>
-                  <td>050165</td>
-                  <td>吳短更</td>
-                  <td>管理員(root)</td>
+                  <td>第二組</td>
+                  <td>廖阿翔</td>
+                  <td>無短耕</td>
+                  <td><span class="badge badge-success word-0">已評分</span></td>
+                  <td><span class="badge badge-secondary word-0">不評分</span></td>
                   <td>
-                    <a href="manage-account-detail.html#account_info" class="btn btn-warning">詳細&編輯</a>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_account_2">刪除</button>
+                    <a href="teacher-rating-detail.html#rating_info" class="btn btn-primary btn-lg">評分</a>
                   </td>
                 </tr>
                 <tr>
-                  <td>3</td>
-                  <td>043077</td>
-                  <td>彭阿翔</td>
-                  <td>管理員(root)</td>
+                  <td>第三組</td>
+                  <td>廖阿翔</td>
+                  <td>程輿情</td>
+                  <td><span class="badge badge-success word-0">已評分</span></td>
+                  <td><span class="badge badge-success word-0">已評分</span></td>
                   <td>
-                    <a href="manage-account-detail.html#account_info" class="btn btn-warning">詳細&編輯</a>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_account_3">刪除</button>
+                    <a href="teacher-rating-detail.html#rating_info" class="btn btn-primary btn-lg">評分</a>
                   </td>
                 </tr>
               </tbody>
             </table>
-            <a href="manage-account-add.html#add_account_form" class="btn btn-dark btn-lg my-3">新增帳號</a>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>輔仁大學資訊管理學系 - 專題評分系統 - 評分資訊&編輯(後台)</title>
+    <title>輔仁大學資訊管理學系 - 專題評分系統 - 老師評分資訊&編輯</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +30,7 @@
         /*#20c997*/
         background: #9fcdff no-repeat center center;
       }
-      #rating_edit{
+      #rating_edit, #rating_pedit{
         display: none;
       }
       input.cus-input{
@@ -43,8 +43,11 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
       $(function(){
-          $(".editAction").click(function(){
+          $(".rateAction").click(function(){
               $("#rating_edit").fadeToggle();
+          });
+          $(".ratepAction").click(function(){
+              $("#rating_pedit").fadeToggle();
           });
       });
     </script>
@@ -76,7 +79,7 @@
                 老師功能
               </a>
               <div class="dropdown-menu" aria-labelledby="teacherpanel">
-                <a class="dropdown-item" href="teacher-rating.html">評分</a>
+                <a class="dropdown-item active" href="teacher-rating.html">評分</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -119,46 +122,22 @@
       </div>
     </header>
 
-    <div class="modal fade" id="delete_hint_msg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="delete_hint_msg_title">刪除老師評分</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="alert alert-danger" role="alert">
-              <p>此動作不可回復！</p>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <form action="manage-rating-detail.html#rating_info" method="post">
-              <!--data-dismiss="modal"-->
-              <button type="submit" class="btn btn-secondary">確定</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="modal fade" id="hint_msg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="hint_title">編輯老師評分</h5>
+            <h5 class="modal-title" id="hint_title">評分</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <div class="alert alert-success" role="alert">
-              <p>編輯成功！</p>
+              <p>評分成功！</p>
             </div>
           </div>
           <div class="modal-footer">
-            <form action="manage-rating.html#manage_rating_panel" method="post">
+            <form action="teacher-rating-detail.html#rating_info" method="post">
               <!--data-dismiss="modal"-->
               <button type="submit" class="btn btn-secondary">確定</button>
             </form>
@@ -197,45 +176,33 @@
             <table class="table table-custom table-red">
               <thead>
                 <tr>
-                  <th colspan="5">已評分的老師</th>
+                  <th colspan="5">評分項目</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>教職員編號</td>
-                  <td>教師名稱</td>
+                  <td>項目</td>
                   <td>總原始成績</td>
+                  <td>狀態</td>
                   <td>日期</td>
                   <td>動作</td>
                 </tr>
                 <tr>
-                  <td>507881</td>
-                  <td>陳智與</td>
-                  <td>100</td>
-                  <td>2018/10/27</td>
+                  <td>文件評分</td>
+                  <td>99</td>
+                  <td><span class="badge badge-success word-0">已評分</span></td>
+                  <td>2018/11/31</td>
                   <td>
-                    <button type="button" class="btn btn-warning editAction">編輯</button>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_hint_msg">刪除</button>
+                    <button type="button" class="btn btn-success rateAction">評分</button>
                   </td>
                 </tr>
                 <tr>
-                  <td>487636</td>
-                  <td>廖祥祥</td>
-                  <td>87</td>
-                  <td>2018/10/27</td>
+                  <td>發表評分</td>
+                  <td>n/a</td>
+                  <td><span class="badge badge-danger word-0">未評分</span></td>
+                  <td>n/a</td>
                   <td>
-                    <button type="button" class="btn btn-warning editAction">編輯</button>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_hint_msg">刪除</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>556888</td>
-                  <td>陳驗龍</td>
-                  <td>80</td>
-                  <td>2018/10/27</td>
-                  <td>
-                    <button type="button" class="btn btn-warning editAction">編輯</button>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_hint_msg">刪除</button>
+                    <button type="button" class="btn btn-success ratepAction">評分</button>
                   </td>
                 </tr>
               </tbody>
@@ -246,16 +213,10 @@
               <table class="table table-custom table-grey">
                 <thead>
                   <tr>
-                    <th colspan="4">編輯文件評分</th>
+                    <th colspan="4">文件評分</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>教職員編號:</td>
-                    <td><input type="text" name="teacher_number" class="cus-input" value="507881"></td>
-                    <td>教師名稱:</td>
-                    <td><input type="text" name="teacher_name" class="cus-input" value="陳智與"></td>
-                  </tr>
                   <tr>
                     <td rowspan="2">文件初稿(30%):</td>
                     <td>系統描述</td>
@@ -263,9 +224,9 @@
                     <td>設計規格</td>
                   </tr>
                   <tr>
-                    <td><input type="text" name="system_score" class="cus-input" value="A"></td>
-                    <td><input type="text" name="require_score" class="cus-input" value="A"></td>
-                    <td><input type="text" name="design_score" class="cus-input" value="A"></td>
+                    <td><input type="text" name="system_score" class="cus-input" value="A" required></td>
+                    <td><input type="text" name="require_score" class="cus-input" value="A" required></td>
+                    <td><input type="text" name="design_score" class="cus-input" value="B" required></td>
                   </tr>
                   <tr>
                     <td rowspan="4">系統功能(30%):</td>
@@ -274,9 +235,9 @@
                     <td>系統技術性</td>
                   </tr>
                   <tr>
-                    <td><input type="text" name="innovation_score" class="cus-input" value="F"></td>
-                    <td><input type="text" name="practical_score" class="cus-input" value="F"></td>
-                    <td><input type="text" name="technology_score" class="cus-input" value="D"></td>
+                    <td><input type="text" name="innovation_score" class="cus-input" value="C" required></td>
+                    <td><input type="text" name="practical_score" class="cus-input" value="F" required></td>
+                    <td><input type="text" name="technology_score" class="cus-input" value="D" required></td>
                   </tr>
                   <tr>
                     <td>介面親和性</td>
@@ -284,26 +245,41 @@
                     <td>是否要補驗收</td>
                   </tr>
                   <tr>
-                    <td><input type="text" name="interface_score" class="cus-input" value="C"></td>
-                    <td><input type="text" name="content_score" class="cus-input" value="F"></td>
-                    <td><input type="checkbox" name="check_again" checked></td>
+                    <td><input type="text" name="interface_score" class="cus-input" value="D" required></td>
+                    <td><input type="text" name="content_score" class="cus-input" value="A" required></td>
+                    <td><input type="checkbox" name="check_again"></td>
                   </tr>
                   <tr>
                     <td rowspan="2">評語:</td>
                     <td>優點:</td>
-                    <td colspan="2"><textarea rows="3" name="advantage">請重作！</textarea></td>
+                    <td colspan="2"><textarea rows="3" name="advantage" required>夭壽讚!</textarea></td>
                   </tr>
                   <tr>
                     <td>缺點:</td>
-                    <td colspan="2"><textarea rows="3" name="disadvantage">有100項缺失！</textarea></td>
+                    <td colspan="2"><textarea rows="3" name="disadvantage" required>完美!</textarea></td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" class="text-left">
+                      <p class="ml-1">備註:</p>
+                      <ol>
+                        <li>分數請用ABCDF等級表示：A為優異、B為佳、C為普通、D為有待改進、F為不合格。(建議只選一組評為優異)</li>
+                        <li>請參考『評分標準』各項說明來給予等級分數。</li>
+                        <li>請老師務必給予評語。</li>
+                      </ol>
+                    </td>
                   </tr>
                 </tbody>
               </table>
+              <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#hint_msg">評分</button>
+            </form>
+          </div>
+          <div class="col-md-12 col-lg-12 col-xl-10 mx-auto" id="rating_pedit">
+            <form action="" method="post">
               <table class="table table-custom table-grey">
                 <thead>
-                  <tr>
-                    <th colspan="5">編輯發表評分</th>
-                  </tr>
+                <tr>
+                  <th colspan="5">發表評分</th>
+                </tr>
                 </thead>
                 <tbody>
                   <tr>
@@ -314,22 +290,33 @@
                     <td>系統功能(10%)</td>
                   </tr>
                   <tr>
-                    <td><input type="text" name="demo" class="cus-input" value="A"></td>
-                    <td><input type="text" name="talk" class="cus-input" value="A"></td>
-                    <td><input type="text" name="time" class="cus-input" value="A"></td>
-                    <td><input type="text" name="function" class="cus-input" value="A"></td>
+                    <td><input type="text" name="demo" class="cus-input" required></td>
+                    <td><input type="text" name="talk" class="cus-input" required></td>
+                    <td><input type="text" name="time" class="cus-input" required></td>
+                    <td><input type="text" name="function" class="cus-input" required></td>
                   </tr>
                   <tr>
                     <td>請評審給予整組綜合性評語：</td>
-                    <td colspan="3"><textarea rows="3" name="comment">夭壽讚!</textarea></td>
+                    <td colspan="3"><textarea rows="3" name="comment"></textarea></td>
+                  </tr>
+                  <tr>
+                    <td colspan="5" class="text-left">
+                      <p class="ml-1">備註:</p>
+                      <ol>
+                        <li>展示中包含English Presentation 5分鐘，請評審斟酌給分。</li>
+                        <li>分數請用ABCDF等級表示：A為優異、B為佳、C為普通、D為有待改進、F為不合格。(建議只選一組評為優異)。</li>
+                        <li>時間配分標準: 15分鐘以下: F、15~18分鐘 : C、18~20分鐘 : A、20~23分鐘 : C、23分鐘以上: F。</li>
+                        <li>安裝耽誤發表時間的扣分標準：開始發表時間延遲2分鐘以上，以F計之，延遲超過10分鐘以上由評審老師決定是否發表。</li>
+                      </ol>
+                    </td>
                   </tr>
                 </tbody>
               </table>
-              <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#hint_msg">編輯</button>
+              <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#hint_msg">評分</button>
             </form>
           </div>
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <a href="manage-rating.html#manage_rating_panel" class="btn btn-dark btn-lg my-3">回專案評分管理頁面</a>
+            <a href="teacher-rating.html#manage_rating_panel" class="btn btn-dark btn-lg my-3">回老師評分頁面</a>
           </div>
         </div>
       </div>
