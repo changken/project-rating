@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>輔仁大學資訊管理學系 - 專題評分系統 - 登入</title>
+    <title>輔仁大學資訊管理學系 - 專題評分系統 - 註冊</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,12 +24,38 @@
 
     <style>
       header.masthead{
-        background: url("img/banners_0004.jpg") no-repeat center center;
+        background: url("img/banners_0002.jpg") no-repeat center center;
+      }
+      .call-to-action{
+        /*#20c997、#9fcdff*/
+        background: #ffffff no-repeat center center;
+      }
+      #teacher_area{
+        display: none;
       }
     </style>
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(function(){
+            $("form#personal_info").submit(function () {
+                $("#level").removeAttr('disabled');
+            });
+            $("#level").change(function(){
+                switch ($("#level option:selected").val()) {
+                    case 'teacher':
+                        $("#stu_area").hide();
+                        $("#teacher_area").show();
+                        break;
+                    case 'student':
+                        $("#stu_area").show();
+                        $("#teacher_area").hide();
+                        break;
+                }
+            });
+        });
+    </script>
   </head>
 
   <body>
@@ -48,10 +74,10 @@
               <a class="nav-link" href="index.html">首頁</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="login.html">登入</a>
+              <a class="nav-link" href="login.html">登入</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="reg.html">註冊</a>
+              <a class="nav-link active" href="reg.html">註冊</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="stu_panel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -62,12 +88,12 @@
               </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="teacherpanel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    老師功能
-                </a>
-                <div class="dropdown-menu" aria-labelledby="teacherpanel">
-                    <a class="dropdown-item" href="teacher-rating.html">評分</a>
-                </div>
+              <a class="nav-link dropdown-toggle" href="#" id="teacherpanel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                老師功能
+              </a>
+              <div class="dropdown-menu" aria-labelledby="teacherpanel">
+                <a class="dropdown-item" href="teacher-rating.html">評分</a>
+              </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="backpanel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -144,31 +170,100 @@
       </div>
     </section>
 
+    <div class="modal fade" id="hint_msg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="hint_msg_title">註冊成功！</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-success" role="alert">
+              <p>註冊成功！</p>
+              <p>現在您可以立即使用您的帳號！</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+              <button type="submit" class="btn btn-secondary" data-dismiss="modal">確定</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Call to Action -->
     <section class="call-to-action text-white text-center">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <div class="col-xl-9 mx-auto">
-            <h2 class="mb-4 display-4">登入系統</h2>
-          </div>
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form action="" method="post">
-                <div class="row justify-content-md-center">
-                  <div class="col-12 col-md-9 mb-3">
-                    <input type="text" class="form-control form-control-lg" placeholder="Enter your name..." name="username">
-                  </div>
-                </div>
-                <div class="row justify-content-md-center">
-                  <div class="col-12 col-md-9 mb-3">
-                    <input type="password" class="form-control form-control-lg" placeholder="Enter your password..." name="password">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12 col-md-3 offset-md-7">
-                    <button type="submit" class="btn btn-block btn-lg btn-primary word-1">登入</button>
-                  </div>
-                </div>
+            <form action="" method="post" id="personal_info">
+              <table class="table table-custom table-grey">
+                <thead>
+                <tr>
+                  <th colspan="2">註冊 步驟2</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>ldap帳號:</td>
+                  <td><input type="text" name="ldap_user" class="cus-input" value="406401999" readonly></td>
+                </tr>
+                <tr>
+                  <td>姓名:</td>
+                  <td><input type="text" name="name" class="cus-input" value="彭小明" readonly></td>
+                </tr>
+                <tr>
+                  <td>電子郵件:</td>
+                  <td><input type="text" name="email" class="cus-input"></td>
+                </tr>
+                <tr>
+                  <td>權限:</td>
+                  <td>
+                    <select class="cus-select" name="level" id="level" disabled>
+                      <option value="student" selected>學生</option>
+                      <option value="teacher">教師</option>
+                    </select>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-custom" id="stu_area">
+                <thead>
+                <tr>
+                  <th colspan="2">學生</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>系級:</td>
+                  <td><input type="text" name="stu_department_grade" class="cus-input"></td>
+                </tr>
+                <tr>
+                  <td>組別:</td>
+                  <td><input type="text" name="stu_group" class="cus-input"></td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-custom" id="teacher_area">
+                <thead>
+                <tr>
+                  <th colspan="2">教師</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>等級:</td>
+                  <td><input type="text" name="teacher_level" class="cus-input"></td>
+                </tr>
+                <tr>
+                  <td>職位:</td>
+                  <td><input type="text" name="teacher_work" class="cus-input"></td>
+                </tr>
+                </tbody>
+              </table>
+              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hint_msg">確認</button>
             </form>
           </div>
         </div>

@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>輔仁大學資訊管理學系 - 專題評分系統 - 登入</title>
+    <title>輔仁大學資訊管理學系 - 專題評分系統 - 學生上傳文件</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,12 +24,18 @@
 
     <style>
       header.masthead{
-        background: url("img/banners_0004.jpg") no-repeat center center;
+        background: url("img/banners_0002.jpg") no-repeat center center;
+      }
+      .call-to-action{
+        /*#20c997*/
+        background: #9fcdff no-repeat center center;
       }
     </style>
+
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
   </head>
 
   <body>
@@ -48,7 +54,7 @@
               <a class="nav-link" href="index.html">首頁</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="login.html">登入</a>
+              <a class="nav-link" href="login.html">登入</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="reg.html">註冊</a>
@@ -58,16 +64,16 @@
                 學生功能
               </a>
               <div class="dropdown-menu" aria-labelledby="stu_panel">
-                <a class="dropdown-item" href="student-file.html">學生上傳文件</a>
+                <a class="dropdown-item active" href="student-file.html">學生上傳文件</a>
               </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="teacherpanel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    老師功能
-                </a>
-                <div class="dropdown-menu" aria-labelledby="teacherpanel">
-                    <a class="dropdown-item" href="teacher-rating.html">評分</a>
-                </div>
+              <a class="nav-link dropdown-toggle" href="#" id="teacherpanel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                老師功能
+              </a>
+              <div class="dropdown-menu" aria-labelledby="teacherpanel">
+                <a class="dropdown-item" href="teacher-rating.html">評分</a>
+              </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="backpanel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -109,67 +115,90 @@
       </div>
     </header>
 
-    <!-- Icons Grid -->
-    <section class="features-icons bg-light text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="icon-people m-auto text-primary"></i>
-              </div>
-              <h3>分組</h3>
-              <p class="lead mb-0">透過本系統，可以輕鬆地得知每個組別的分組情形。</p>
+    <div class="modal fade" id="upload_success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="delete_file_0_title">上傳成功!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-success" role="alert">
+              <p>上傳成功！</p>
+              <p class="word-2">重複上傳會蓋掉原先檔案！</p>
             </div>
           </div>
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="icon-list m-auto text-primary"></i>
-              </div>
-              <h3>評分</h3>
-              <p class="lead mb-0">免去了大量的紙本評分表，可以讓老師直接於線上評分，並且可以立即得知成績和排名。</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="icon-check m-auto text-primary"></i>
-              </div>
-              <h3>就是有效率</h3>
-              <p class="lead mb-0">時間就是金錢，電子化夭壽讚！XD</p>
-            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- Call to Action -->
     <section class="call-to-action text-white text-center">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <div class="col-xl-9 mx-auto">
-            <h2 class="mb-4 display-4">登入系統</h2>
-          </div>
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form action="" method="post">
-                <div class="row justify-content-md-center">
-                  <div class="col-12 col-md-9 mb-3">
-                    <input type="text" class="form-control form-control-lg" placeholder="Enter your name..." name="username">
-                  </div>
-                </div>
-                <div class="row justify-content-md-center">
-                  <div class="col-12 col-md-9 mb-3">
-                    <input type="password" class="form-control form-control-lg" placeholder="Enter your password..." name="password">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12 col-md-3 offset-md-7">
-                    <button type="submit" class="btn btn-block btn-lg btn-primary word-1">登入</button>
-                  </div>
-                </div>
-            </form>
+          <div class="col-md-10 col-lg-10 col-xl-10 mx-auto" id="student_file_panel">
+            <table class="table table-custom table-black">
+              <thead>
+                <tr>
+                  <th colspan="6">學生上傳文件</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>編號</td>
+                  <td>項目名稱</td>
+                  <td>文件類型</td>
+                  <td>上傳期限</td>
+                  <td>上傳日期</td>
+                  <td>動作</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>各組系統分析書</td>
+                  <td>pdf</td>
+                  <td>2018/12/31</td>
+                  <td>2018/10/31</td>
+                  <td>
+                    <form action="" method="post">
+                      <input type="file" class="cus-file" name="project_file">
+                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#upload_success">上傳</button>
+                    </form>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>各組系統初步介紹</td>
+                  <td>pdf</td>
+                  <td>2018/10/31</td>
+                  <td>未上傳</td>
+                  <td>
+                    <form action="" method="post">
+                      <input type="file" class="cus-file" name="project_file">
+                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#upload_success">上傳</button>
+                    </form>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>系統競爭力分析書</td>
+                  <td>pdf</td>
+                  <td>2018/10/30</td>
+                  <td>未上傳</td>
+                  <td>
+                    <form action="" method="post">
+                      <input type="file" class="cus-file" name="project_file">
+                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#upload_success">上傳</button>
+                    </form>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

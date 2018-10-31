@@ -60,6 +60,14 @@
               <a class="nav-link" href="reg.html">註冊</a>
             </li>
             <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="stu_panel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                學生功能
+              </a>
+              <div class="dropdown-menu" aria-labelledby="stu_panel">
+                <a class="dropdown-item" href="student-file.html">學生上傳文件</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="teacherpanel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 老師功能
               </a>
@@ -170,27 +178,6 @@
         </div>
       </div>
     </div>
-    <div class="modal fade" id="delete_file_3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="delete_file_3_title">刪除隨便一個番號</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="alert alert-danger" role="alert">
-              <p>刪除專案番號是個不可回復的動作！</p>
-              <p class="word-2">可能導致影片外洩！</p>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Call to Action -->
     <section class="call-to-action text-white text-center">
@@ -225,7 +212,7 @@
                 <tr>
                   <td>2</td>
                   <td>各組系統初步介紹</td>
-                  <td>純文字</td>
+                  <td>pdf</td>
                   <td>2018/10/31</td>
                   <td>
                     <a href="manage-file-detail.html#file_info" class="btn btn-warning">詳細&編輯</a>
@@ -240,16 +227,6 @@
                   <td>
                     <a href="manage-file-detail.html#file_info" class="btn btn-warning">詳細&編輯</a>
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_file_2">刪除</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>隨便一個番號</td>
-                  <td>純文字</td>
-                  <td>2018/10/27</td>
-                  <td>
-                    <a href="manage-file-detail.html#file_info" class="btn btn-warning">詳細&編輯</a>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_file_3">刪除</button>
                   </td>
                 </tr>
               </tbody>

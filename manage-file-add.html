@@ -61,6 +61,14 @@
               <a class="nav-link" href="reg.html">註冊</a>
             </li>
             <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="stu_panel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                學生功能
+              </a>
+              <div class="dropdown-menu" aria-labelledby="stu_panel">
+                <a class="dropdown-item" href="student-file.html">學生上傳文件</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="teacherpanel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 老師功能
               </a>
@@ -73,10 +81,10 @@
                 後台功能
               </a>
               <div class="dropdown-menu" aria-labelledby="backpanel">
-                <a class="dropdown-item active" href="manage-account.html">帳號權限管理</a>
+                <a class="dropdown-item" href="manage-account.html">帳號權限管理</a>
                 <a class="dropdown-item" href="manage-rating.html">專題評分管理</a>
                 <a class="dropdown-item" href="manage-group.html">專題分組管理</a>
-                <a class="dropdown-item" href="manage-file.html">專題文件管理</a>
+                <a class="dropdown-item active" href="manage-file.html">專題文件管理</a>
               </div>
             </li>
           </ul>
@@ -155,7 +163,6 @@
                     <td>
                       <select name="file_type" class="cus-select">
                         <option value="pdf" selected>pdf</option>
-                        <option value="plain_text">純文字</option>
                       </select>
                     </td>
                   </tr>
