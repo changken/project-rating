@@ -34,6 +34,14 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+      $(function () {
+          $("#agree").click(function () {
+              $("#reg_button").attr('class', 'btn btn-primary btn-lg');
+              $("#reg_button").removeAttr('disabled');
+          });
+      })
+    </script>
   </head>
 
   <body>
@@ -59,18 +67,15 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="stu_panel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                學生功能
+                會員功能
               </a>
               <div class="dropdown-menu" aria-labelledby="stu_panel">
+                <a class="dropdown-item" href="center.html">會員中心</a>
+                <a class="dropdown-item" href="update.html">帳號資料修改</a>
+                <a class="dropdown-item" href="student-apply-group.html">填寫專題分組</a>
                 <a class="dropdown-item" href="student-file.html">學生上傳文件</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="teacherpanel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                老師功能
-              </a>
-              <div class="dropdown-menu" aria-labelledby="teacherpanel">
-                <a class="dropdown-item" href="teacher-rating.html">評分</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="teacher-rating.html">老師評分</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -148,13 +153,74 @@
       </div>
     </section>
 
+    <div class="modal fade" id="tos_msg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="tos_msg_title">請詳細閱讀本服務條款!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>歡迎使用輔仁大學資訊管理學系（以下稱本單位）所提供之專題評分系統(https://rating.im.fju.edu.tw)，依據個人資料保護法（以下稱個資法）第八條第一項規定，為了確保使用者之個人資料、隱私及權益之保護，當您已閱讀並同意「輔仁大學資訊管理學系個人資料保護法告知內容」時，即表示您願意以電子文件之方式行使法律所賦予同意之權利，並具有書面同意之效果，若不同意請離開此網頁，如需服務請洽本單位之服務人員。 (以下為本單位依「個人資料保護法」規定，必須向您告知的各項聲明，請您務必詳閱。)</p>
+            <p>1. 個人資料蒐集目的：</p>
+            <ol>
+              <li>依照輔仁大學資訊管理學系所舉辦之資訊專題課程期間之行為均屬於本系統之個資蒐集目的。</li>
+              <li>上述之相關業務所定義之工作範圍。</li>
+            </ol>
+            <p>2. 個人資料蒐集來源</p>
+            <ol>
+              <li>輔仁大學學校財團法人所提供LDAP相關服務之電磁紀錄</li>
+              <li>您於註冊程序時所填寫之個人聯絡資料</li>
+            </ol>
+            <p>3. 個人資料蒐集類別：</p>
+            <ol>
+              <li>識別類（例如：中文姓名、學生或員工證號、聯絡電話號碼、地址、性別、電子郵遞地址）</li>
+              <li>特徵類（例如：出生年月日、國籍、個人照片、筆跡與紙本文件）等。</li>
+            </ol>
+            <p>4. 個人資料利用之期間、地區、對象及方式：</p>
+            <ol>
+              <li>期間：利用期間為本單位或業務所必須之保存期間。</li>
+              <li>地區：您的個人資料將用於本單位提供服務之地區。</li>
+              <li>對象：本單位經手資訊專題課程之相關行政人員、依法有調查權機關。</li>
+              <li>方式：電子文件、紙本，或以自動化機器或其他非自動化之利用方式。</li>
+            </ol>
+            <p>5. 依據個資法第三條規定，您就本單位保有您的個人資料得行使下列權利：</p>
+            <ol>
+              <li>查詢、閱覽、複本、補充、更正、請求停止蒐集、請求停止處理、請求停止利用、請求刪除等權利。</li>
+            </ol>
+            <p>6. 個資保護之措施：<br>
+            本單位已採取資訊安全保護措施，並且針對個資保護有以下應盡之措施：</p>
+            <ol>
+              <li>配置管理之人員及相當資源</li>
+              <li>界定個人資料之範圍</li>
+              <li>個人資料之風險評估及管理機制</li>
+              <li>事故之預防、通報及應變機制</li>
+              <li>個人資料蒐集、處理及利用之內部管理程序</li>
+              <li>資料安全管理以及人員管理</li>
+              <li>認知宣導及教育訓練</li>
+              <li>設備安全管理</li>
+              <li>資料安全稽核機制</li>
+              <li>使用紀錄、軌跡資料及證據保存</li>
+              <li>個人資料安全維護之整體持續改善</li>
+            </ol>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success" data-dismiss="modal" id="agree">同意</button>
+            <button type="submit" class="btn btn-danger" data-dismiss="modal" id="not_agree">不同意</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Call to Action -->
     <section class="call-to-action text-white text-center">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form action="reg-2.html" method="post">
+            <form action="reg-2.html#personal_info" method="post">
               <table class="table table-custom table-grey">
                 <thead>
                   <tr>
@@ -170,8 +236,16 @@
                   </tr>
                   <tr>
                     <td>
-                      <p class="form-text text-dark word-1">按下註冊即視同您同意本系統的使用條款。</p>
-                      <button type="submit" class="btn btn-primary btn-lg">註冊</button>
+                      <p class="form-text text-dark word-1">按下註冊即視同您同意本系統的<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#tos_msg">使用條款</button>。</p>
+                      <input type="submit" class="btn btn-primary btn-lg disabled" id="reg_button" value="註冊" disabled>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="alert alert-warning">
+                        <p>說明<br>
+                        請輸入您在輔大的LDAP帳密, 完成驗證後, 將繼續完成接下來的註冊帳號流程。若在帳號上還有其他問題的話, 請於上班時間至資管系系辦找黃助教協助~</p>
+                      </div>
                     </td>
                   </tr>
                 </tbody>

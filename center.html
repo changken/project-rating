@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>輔仁大學資訊管理學系 - 專題評分系統 - 專題評分管理</title>
+    <title>輔仁大學資訊管理學系 - 專題評分系統 - 會員中心</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,15 +27,13 @@
         background: url("img/banners_0002.jpg") no-repeat center center;
       }
       .call-to-action{
-        /*#20c997*/
-        background: #9fcdff no-repeat center center;
+        /*#20c997、#9fcdff*/
+        background: #ffffff no-repeat center center;
       }
     </style>
-
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
   </head>
 
   <body>
@@ -64,7 +62,7 @@
                 會員功能
               </a>
               <div class="dropdown-menu" aria-labelledby="stu_panel">
-                <a class="dropdown-item" href="center.html">會員中心</a>
+                <a class="dropdown-item active" href="center.html">會員中心</a>
                 <a class="dropdown-item" href="update.html">帳號資料修改</a>
                 <a class="dropdown-item" href="student-apply-group.html">填寫專題分組</a>
                 <a class="dropdown-item" href="student-file.html">學生上傳文件</a>
@@ -78,7 +76,7 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="backpanel">
                 <a class="dropdown-item" href="manage-account.html">帳號權限管理</a>
-                <a class="dropdown-item active" href="manage-rating.html">專題評分管理</a>
+                <a class="dropdown-item" href="manage-rating.html">專題評分管理</a>
                 <a class="dropdown-item" href="manage-group.html">專題分組管理</a>
                 <a class="dropdown-item" href="manage-file.html">專題文件管理</a>
               </div>
@@ -112,64 +110,64 @@
       </div>
     </header>
 
+    <!-- Icons Grid -->
+    <section class="features-icons bg-light text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+              <div class="features-icons-icon d-flex">
+                <i class="icon-people m-auto text-primary"></i>
+              </div>
+              <h3>分組</h3>
+              <p class="lead mb-0">透過本系統，可以輕鬆地得知每個組別的分組情形。</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+              <div class="features-icons-icon d-flex">
+                <i class="icon-list m-auto text-primary"></i>
+              </div>
+              <h3>評分</h3>
+              <p class="lead mb-0">免去了大量的紙本評分表，可以讓老師直接於線上評分，並且可以立即得知成績和排名。</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+              <div class="features-icons-icon d-flex">
+                <i class="icon-check m-auto text-primary"></i>
+              </div>
+              <h3>就是有效率</h3>
+              <p class="lead mb-0">時間就是金錢，電子化夭壽讚！XD</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Call to Action -->
     <section class="call-to-action text-white text-center">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <div class="col-md-10 col-lg-8 col-xl-8 mx-auto" id="manage_rating_panel">
-            <table class="table table-custom">
-              <thead>
-                <tr>
-                  <th colspan="5">專題評分管理</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>組別</td>
-                  <td>指導老師</td>
-                  <td>組長</td>
-                  <td>總評分</td>
-                  <td>動作</td>
-                </tr>
-                <tr>
-                  <td>第一組</td>
-                  <td>廖阿翔</td>
-                  <td>張凱凱</td>
-                  <td>99</td>
-                  <td>
-                    <a href="manage-rating-detail.html#rating_info" class="btn btn-warning">詳細</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>第二組</td>
-                  <td>廖阿翔</td>
-                  <td>無短耕</td>
-                  <td>80</td>
-                  <td>
-                    <a href="manage-rating-detail.html#rating_info" class="btn btn-warning">詳細</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>第三組</td>
-                  <td>廖阿翔</td>
-                  <td>程輿情</td>
-                  <td>88</td>
-                  <td>
-                    <a href="manage-rating-detail.html#rating_info" class="btn btn-warning">詳細</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>第八十七組</td>
-                  <td>彭阿翔</td>
-                  <td>賴佑瓜</td>
-                  <td>90</td>
-                  <td>
-                    <a href="manage-rating-detail.html#rating_info" class="btn btn-warning">詳細</a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="col-md-10 col-lg-8 col-xl-8 mx-auto">
+              <table class="table table-custom table-black table-panel">
+                <thead>
+                  <tr>
+                    <th colspan="2">會員中心</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="student-file.html"><i class="fas fa-upload fa-4x"></i>學生上傳文件</a></td>
+                    <td><a href="teacher-rating.html"><i class="fas fa-edit fa-4x"></i>老師評分</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="student-apply-group.html"><i class="fas fa-users fa-4x"></i>填寫專題分組</a></td>
+                    <td><a href="update.html"><i class="fas fa-user-edit fa-4x"></i>帳號資料修改</a></td>
+                  </tr>
+                </tbody>
+              </table>
           </div>
         </div>
       </div>

@@ -88,6 +88,14 @@ table.table-custom.table-black tbody tr td{
 table.table-custom.table-black tbody tr td:hover{
     background-color: #F5F5F5;
 }
+/*table panel*/
+table.table-custom.table-panel thead tr th{
+    padding: 60px 10px;
+}
+table.table-custom.table-panel tbody tr td{
+    padding: 70px 0;
+    width: 50%;
+}
 /*input field*/
 input.cus-input{
     padding: 10px;
