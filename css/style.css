@@ -97,6 +97,9 @@ table.table-custom.table-panel tbody tr td{
     padding: 70px 0;
     width: 50%;
 }
+table.table-custom.table-panel tbody tr td:hover{
+    font-size: 24px;
+}
 /*input field*/
 input.cus-input{
     padding: 10px;
@@ -117,4 +120,20 @@ select.cus-select{
 input[type=file].cus-file{
     font-size: 16px;
     padding: 3px;
+}
+/*panel*/
+.cus-menu-title{
+    font-size: 60px;
+}
+.cus-menu-title:hover{
+    font-size: 62px;
+}
+.cus-menu{
+    font-size: 24px;
+}
+.cus-menu:hover{
+    font-size: 26px;
+}
+.cus-menu a{
+    color: white;;
 }
