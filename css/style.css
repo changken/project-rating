@@ -39,7 +39,8 @@ table.table-custom thead tr th {
     color: white;
     padding: 40px 10px;
     font-size: 30px;
-    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     border: none;
 }
 table.table-custom tbody tr td{

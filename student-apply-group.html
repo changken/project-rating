@@ -70,17 +70,6 @@
                 <a class="dropdown-item" href="teacher-rating.html">老師評分</a>
               </div>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="backpanel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                後台功能
-              </a>
-              <div class="dropdown-menu" aria-labelledby="backpanel">
-                <a class="dropdown-item" href="manage-account.html">帳號權限管理</a>
-                <a class="dropdown-item" href="manage-rating.html">專題評分管理</a>
-                <a class="dropdown-item" href="manage-group.html">專題分組管理</a>
-                <a class="dropdown-item" href="manage-file.html">專題文件管理</a>
-              </div>
-            </li>
           </ul>
         </div>
       </div>
@@ -145,13 +134,39 @@
       </div>
     </section>
 
+    
+    <div class="modal fade" id="hint_msg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="hint_title">填寫成功！</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="alert alert-success" role="alert">
+                <p>填寫分組成功！</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <form action="center.html#center" method="post">
+                <!--data-dismiss="modal"-->
+                <button type="submit" class="btn btn-secondary">確定</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <!-- Call to Action -->
     <section class="call-to-action text-white text-center">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <div class="col-md-10 col-lg-8 col-xl-8 mx-auto">
-              <table class="table table-custom table-black table-panel">
+          <div class="col-md-10 col-lg-8 col-xl-8 mx-auto" id="apply_form">
+            <form action="" method="post">
+              <table class="table table-custom table-black">
                 <thead>
                   <tr>
                     <th colspan="2"><i class="fas fa-users"></i>&nbsp;填寫專題分組</th>
@@ -159,15 +174,33 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a href="student-file.html"><i class="fas fa-upload fa-4x"></i>學生上傳文件</a></td>
-                    <td><a href="teacher-rating.html"><i class="fas fa-edit fa-4x"></i>老師評分</a></td>
+                    <td>組別:</td>
+                    <td><input type="text" name="group_number" class="cus-input"></td>
                   </tr>
                   <tr>
-                    <td><a href="#"><i class="fas fa-users fa-4x"></i>填寫專題分組</a></td>
-                    <td><a href="#"><i class="fas fa-user-edit fa-4x"></i>帳號資料修改</a></td>
+                    <td>組長:</td>
+                    <td><input type="text" name="group_leader" class="cus-input"></td>
+                  </tr>
+                  <tr>
+                    <td>組員1:</td>
+                    <td><input type="text" name="group_member_1" class="cus-input"></td>
+                  </tr>
+                  <tr>
+                    <td>組員2:</td>
+                    <td><input type="text" name="group_member_2" class="cus-input"></td>
+                  </tr>
+                  <tr>
+                    <td>組員3:</td>
+                    <td><input type="text" name="group_member_3" class="cus-input"></td>
+                  </tr>
+                  <tr>
+                    <td>組員4:</td>
+                    <td><input type="text" name="group_member_4" class="cus-input"></td>
                   </tr>
                 </tbody>
               </table>
+              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hint_msg">填寫</button>
+            </form>
           </div>
         </div>
       </div>

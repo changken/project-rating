@@ -30,10 +30,40 @@
         /*#20c997、#9fcdff*/
         background: #ffffff no-repeat center center;
       }
+      #adm_area, #teacher_area{
+        display: none;
+      }
     </style>
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(function(){
+            $('#update_form').submit(function(){
+              alert('修改成功！');
+              $("#level").removeAttr('diasbled');
+            });
+            $("#level").change(function(){
+                switch ($("#level option:selected").val()) {
+                    case 'admin':
+                        $("#adm_area").show();
+                        $("#stu_area").hide();
+                        $("#teacher_area").hide();
+                        break;
+                    case 'teacher':
+                        $("#adm_area").hide();
+                        $("#stu_area").hide();
+                        $("#teacher_area").show();
+                        break;
+                    case 'student':
+                        $("#adm_area").hide();
+                        $("#stu_area").show();
+                        $("#teacher_area").hide();
+                        break;
+                }
+            });
+        });
+      </script>
   </head>
 
   <body>
@@ -75,6 +105,7 @@
                 後台功能
               </a>
               <div class="dropdown-menu" aria-labelledby="backpanel">
+                <a class="dropdown-item" href="admin-center.html">管理中心</a>
                 <a class="dropdown-item" href="manage-account.html">帳號權限管理</a>
                 <a class="dropdown-item" href="manage-rating.html">專題評分管理</a>
                 <a class="dropdown-item" href="manage-group.html">專題分組管理</a>
@@ -145,13 +176,38 @@
       </div>
     </section>
 
+    <div class="modal fade" id="hint_msg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="hint_title">修改帳號資訊</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="alert alert-success" role="alert">
+                <p>修改成功！</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <form action="#update_form" method="post">
+                <!--data-dismiss="modal"-->
+                <button type="submit" class="btn btn-secondary">確定</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <!-- Call to Action -->
     <section class="call-to-action text-white text-center">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <div class="col-md-10 col-lg-8 col-xl-8 mx-auto">
-              <table class="table table-custom table-black table-panel">
+          <div class="col-md-10 col-lg-8 col-xl-8 mx-auto" id="update_panel">
+            <form action="" method="post" id="update_form">
+              <table class="table table-custom table-black">
                 <thead>
                   <tr>
                     <th colspan="2"><i class="fas fa-user-edit"></i>&nbsp;帳號資料修改</th>
@@ -159,15 +215,78 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a href="student-file.html"><i class="fas fa-upload fa-4x"></i>學生上傳文件</a></td>
-                    <td><a href="teacher-rating.html"><i class="fas fa-edit fa-4x"></i>老師評分</a></td>
+                    <td>ldap帳號:</td>
+                    <td><input type="text" name="ldap_user" class="cus-input" value="406401xxx" readonly></td>
                   </tr>
                   <tr>
-                    <td><a href="#"><i class="fas fa-users fa-4x"></i>填寫專題分組</a></td>
-                    <td><a href="#"><i class="fas fa-user-edit fa-4x"></i>帳號資料修改</a></td>
+                    <td>姓名:</td>
+                    <td><input type="text" name="name" class="cus-input" value="陳之餘"></td>
+                  </tr>
+                  <tr>
+                    <td>電子郵件:</td>
+                    <td><input type="text" name="email" class="cus-input" value="406401xxx@mail.fju.edu.tw"></td>
+                  </tr>
+                  <tr>
+                    <td>權限:</td>
+                    <td>
+                      <select class="cus-select" name="level" id="level" disabled>
+                        <option value="admin">管理員</option>
+                        <option value="teacher">教師</option>
+                        <option value="student" selected>學生</option>
+                      </select>
+                    </td>
                   </tr>
                 </tbody>
               </table>
+              <table class="table table-custom" id="adm_area">
+                <thead>
+                  <tr>
+                    <th colspan="2">管理者</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>職位:</td>
+                    <td><input type="text" name="adm_work" class="cus-input"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="table table-custom" id="stu_area">
+                <thead>
+                  <tr>
+                    <th colspan="2">學生</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>系級:</td>
+                    <td><input type="text" name="stu_department_grade" class="cus-input" value="資管假假"></td>
+                  </tr>
+                  <tr>
+                    <td>組別:</td>
+                    <td><input type="text" name="stu_group" class="cus-input" value="第87組" readonly></td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="table table-custom" id="teacher_area">
+                <thead>
+                  <tr>
+                    <th colspan="2">教師</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>等級:</td>
+                    <td><input type="text" name="teacher_level" class="cus-input"></td>
+                  </tr>
+                  <tr>
+                    <td>職位:</td>
+                    <td><input type="text" name="teacher_work" class="cus-input"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <button type="submit" class="btn btn-warning btn-lg">編輯</button>
+            </form>
           </div>
         </div>
       </div>
