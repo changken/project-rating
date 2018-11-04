@@ -20,6 +20,15 @@ header.masthead{
 .call-to-action.user-area{
     background: #f5f5ff no-repeat center center;
 }
+/*custom area*/
+.content {
+    position: relative;
+    background-color: white;
+    /*background: url("../img/bg-masthead.jpg") no-repeat center center;*/
+    background-size: cover;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
 
 /*custom*/
 .word-0{
@@ -95,12 +104,12 @@ table.table-custom.table-black thead tr th{
     background-color: black;
 }
 table.table-custom.table-black tbody tr td{
-    background-color: white;
+    background-color: #FAFAFA;/*white*/
     color: black;
     border-bottom: 4px solid #1b1e21;
 }
 table.table-custom.table-black tbody tr td:hover{
-    background-color: #F5F5F5;
+    background-color: #EDEDED;/*f5f5f5*/
 }
 /*table panel*/
 table.table-custom.table-panel thead tr th{
