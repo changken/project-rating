@@ -8,6 +8,19 @@ header.masthead{
     opacity: 0.8;
 }
 
+.call-to-action.menu-area{
+    background: #919191 no-repeat center center;
+}
+
+.call-to-action.admin-area{
+    /*#9fcdff*/
+    background: #FAFAFA no-repeat center center;
+}
+
+.call-to-action.user-area{
+    background: #f5f5ff no-repeat center center;
+}
+
 /*custom*/
 .word-0{
     font-size: 22px;
@@ -104,11 +117,14 @@ table.table-custom.table-panel tbody tr td:hover{
 input.cus-input{
     padding: 10px;
     font-size: 20px;
-    border-radius: 7px;
-    background-color: #b8daff;
+    border-radius: 8px;
+    /*#b8daff*/
+    background-color: #DEDEDE;
+    border: 0;
 }
 input.cus-input:hover{
-    border: 5px solid #10707f;
+    /*#10707f*/
+    border: 5px solid #B5B5B5;
 }
 /*select field*/
 select.cus-select{
@@ -132,8 +148,11 @@ input[type=file].cus-file{
     font-size: 24px;
 }
 .cus-menu:hover{
-    font-size: 26px;
+    font-size: 28px;
+    background-color: #ABABAB;
+    border:  2px solid #919191;
+    border-radius: 3px;
 }
 .cus-menu a{
-    color: white;;
+    color: white;
 }

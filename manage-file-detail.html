@@ -26,10 +26,6 @@
       header.masthead{
         background: url("img/banners_0002.jpg") no-repeat center center;
       }
-      .call-to-action {
-        /*#20c997*/
-        background: #9fcdff no-repeat center center;
-      }
       #file_edit{
         display: none;
       }
@@ -146,16 +142,40 @@
       </div>
     </div>
 
+    <div class="modal fade" id="delete_hint_msg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="delete_hint_title">刪除檔案</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-danger" role="alert">
+              <p>會移除該組的檔案！</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <form action="manage-file-detail.html#file_info" method="post">
+              <!--data-dismiss="modal"-->
+              <button type="submit" class="btn btn-secondary">確定</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Call to Action -->
-    <section class="call-to-action text-white text-center">
+    <section class="call-to-action admin-area text-white text-center">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="file_info">
-            <table class="table table-custom">
+            <table class="table table-custom table-black">
               <thead>
                 <tr>
-                  <th colspan="2">專案文件詳細資訊</th>
+                  <th colspan="2"><i class="far fa-file-alt"></i>&nbsp;專案文件詳細資訊</th>
                 </tr>
               </thead>
               <tbody>
@@ -177,10 +197,10 @@
                 </tr>
               </tbody>
             </table>
-            <table class="table table-custom table-grey">
+            <table class="table table-custom">
               <thead>
                 <tr>
-                  <th colspan="5">已上傳組別清單</th>
+                  <th colspan="5"><i class="fas fa-users"></i>&nbsp;已上傳組別清單</th>
                 </tr>
               </thead>
               <tbody>
@@ -196,14 +216,14 @@
                   <td>張凱凱</td>
                   <td><a href="#" class="btn btn-dark">分析書.pdf(可下載)</a></td>
                   <td>2018/10/27</td>
-                  <td><a href="#" class="btn btn-danger">刪除</a></td>
+                  <td><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete_hint_msg">刪除</a></td>
                 </tr>
                 <tr>
                   <td>第八十七組</td>
                   <td>賴佑瓜</td>
                   <td><a href="#" class="btn btn-dark">c8763.pdf(可下載)</a></td>
                   <td>2018/10/29</td>
-                  <td><a href="#" class="btn btn-danger">刪除</a></td>
+                  <td><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete_hint_msg">刪除</a></td>
                 </tr>
               </tbody>
             </table>
@@ -211,10 +231,10 @@
           </div>
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto" id="file_edit">
             <form action="" method="post">
-              <table class="table table-custom">
+              <table class="table table-custom table-black">
                 <thead>
                   <tr>
-                    <th colspan="2">編輯專案文件(後台)</th>
+                    <th colspan="2"><i class="far fa-file-alt"></i>&nbsp;編輯專案文件(後台)</th>
                   </tr>
                 </thead>
                 <tbody>
