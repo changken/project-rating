@@ -146,6 +146,12 @@ input[type=file].cus-file{
     font-size: 16px;
     padding: 3px;
 }
+/*textarea*/
+textarea.cus-textarea{
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid grey;
+}
 /*panel*/
 .cus-menu-title{
     font-size: 60px;
