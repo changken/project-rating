@@ -30,6 +30,24 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+      $(function () {
+          $("#change_it").change(function() {
+              switch($("#change_it option:selected").val()){
+                  case 'stu_teacher':
+                    $("#lf_form").attr('action', 'center.html');
+                    $("#lf_title").html("<i class=\"fas fa-user\"></i>&nbsp;學生、老師登入");
+                    $("#lf_table").attr('class', 'table table-custom table-black');
+                    break;
+                  case 'admin':
+                    $("#lf_form").attr('action', 'admin-center.html');
+                    $("#lf_title").html("<i class=\"fas fa-user-tie\"></i>&nbsp;管理者登入");
+                    $("#lf_table").attr('class', 'table table-custom table-red');
+                    break;
+              }
+          });
+      });
+    </script>
   </head>
 
   <body>
@@ -38,20 +56,19 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">專題評分系統</a>
-        <!--<a class="btn btn-primary" href="login.html">登入~~</a>-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav nav-custom">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">首頁</a>
+              <a class="nav-link" href="index.html"><i class="fas fa-home"></i>&nbsp;首頁</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="login.html">登入</a>
+              <a class="nav-link active" href="login.html"><i class="fas fa-user"></i>&nbsp;登入</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="reg.html">註冊</a>
+              <a class="nav-link" href="reg.html"><i class="fas fa-user-plus"></i>&nbsp;註冊</a>
             </li>
           </ul>
         </div>
@@ -66,18 +83,6 @@
           <div class="col-xl-9 mx-auto">
             <h1 class="mb-5">歡迎進入本系統！本系統主要是給專題製作使用。</h1>
           </div>
-          <!--<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form>
-              <div class="form-row">
-                <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
-                </div>
-                <div class="col-12 col-md-3">
-                  <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
-                </div>
-              </div>
-            </form>
-          </div>-->
         </div>
       </div>
     </header>
@@ -110,7 +115,7 @@
                 <i class="icon-check m-auto text-primary"></i>
               </div>
               <h3>就是有效率</h3>
-              <p class="lead mb-0">時間就是金錢，電子化夭壽讚！XD</p>
+              <p class="lead mb-0">時間就是金錢，幾乎大部分的作業能夠在線上完成。</p>
             </div>
           </div>
         </div>
@@ -123,11 +128,11 @@
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form action="center.html" method="post">
-              <table class="table table-custom table-black">
+            <form action="center.html" method="post" id="lf_form">
+              <table class="table table-custom table-black" id="lf_table">
                 <thead>
                   <tr>
-                    <th colspan="2"><i class="fas fa-user"></i>&nbsp;登入</th>
+                    <th colspan="2"><span id="lf_title"><i class="fas fa-user"></i>&nbsp;學生、老師登入</span></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -140,33 +145,22 @@
                     <td><input type="password" name="pw" class="cus-input"></td>
                   </tr>
                   <tr>
-                    <td colspan="2"><button type="submit" class="btn btn-primary">登入</button></td>
+                    <td colspan="2"><button type="submit" class="btn btn-primary btn-lg">登入</button></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <div class="alert alert-warning">
+                        說明:請選擇登入身份:&nbsp;<select name="level" id="change_it" class="cus-select">
+                        <option value="stu_teacher" selected>學生、老師</option>
+                        <option value="admin">管理者</option>
+                      </select>
+                      </div>
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </form>
-          <!--<div class="col-xl-9 mx-auto">
-            <h2 class="mb-4 display-4">登入系統</h2>
           </div>
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form action="center.html" method="post">
-                <div class="row justify-content-md-center">
-                  <div class="col-12 col-md-9 mb-3">
-                    <input type="text" class="form-control form-control-lg" placeholder="Enter your name..." name="username">
-                  </div>
-                </div>
-                <div class="row justify-content-md-center">
-                  <div class="col-12 col-md-9 mb-3">
-                    <input type="password" class="form-control form-control-lg" placeholder="Enter your password..." name="password">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12 col-md-3 offset-md-7">
-                    <button type="submit" class="btn btn-block btn-lg btn-primary word-1">登入</button>
-                  </div>
-                </div>
-            </form>
-          </div>-->
         </div>
       </div>
     </section>
@@ -180,20 +174,6 @@
               <li class="list-inline-item">
                 <a href="http://www.im.fju.edu.tw/">系上官網</a>
               </li>
-              <!--
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Contact</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-              -->
             </ul>
             <p class="text-muted small mb-4 mb-lg-0">&copy; 2018 輔仁大學資訊管理學系 版權所有<br>
               242新北市新莊區中正路510號 利瑪竇大樓LM306<br>
